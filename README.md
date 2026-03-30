@@ -4,7 +4,6 @@ Personal portfolio and blog platform where visitors can create an account to rec
 
 ## 🚀 Live Site
 
-[yourname.dev](https://yourname.dev)
 
 ## 🛠 Tech Stack
 
