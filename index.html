@@ -839,7 +839,7 @@
         <a href="#contact">Contact</a>
         <div id="music-toggle">
           <span class="note">♫</span>
-          <span id="music-text">Music Off</span>
+          <span id="music-text">Music On</span>
         </div>
       </div>
     </nav>
@@ -1076,7 +1076,7 @@
 
       musicBtn.addEventListener("click", () => {
         musicOn = !musicOn;
-        musicText.innerText = musicOn ? "Music On" : "Music Off";
+        musicText.innerText = musicOn ? "Music Off" : "Music On";
         if (musicOn) {
           audio.play();
         } else {
