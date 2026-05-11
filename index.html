@@ -514,7 +514,6 @@
           transform 0.4s ease,
           box-shadow 0.4s ease;
         position: relative;
-        overflow: hidden;
       }
       .project-card::before {
         content: "";
@@ -548,14 +547,12 @@
 
       .project-visual-container {
         width: 100%;
-        height: 320px;
-        background: rgba(0, 0, 0, 0.025);
-        border-radius: 22px;
-        overflow: hidden;
+        height: 340px;
+        background: transparent;
         display: flex;
         align-items: center;
         justify-content: center;
-        border: 1px solid rgba(255, 255, 255, 0.8);
+        overflow: visible;
       }
       .project-visual-container img {
         width: 100%;
@@ -569,14 +566,18 @@
           transform: translateY(0px);
         }
         50% {
-          transform: translateY(-16px);
+          transform: translateY(-14px);
         }
       }
       model-viewer {
         width: 100%;
         height: 100%;
         --poster-color: transparent;
+        background-color: transparent;
         animation: softBounce 5s ease-in-out infinite;
+        --exposure: 1.4;
+        --shadow-intensity: 0;
+        --ambient-intensity: 1;
       }
 
       .project-content h3 {
@@ -839,7 +840,7 @@
         <a href="#contact">Contact</a>
         <div id="music-toggle">
           <span class="note">♫</span>
-          <span id="music-text">Music On</span>
+          <span id="music-text">Music Off</span>
         </div>
       </div>
     </nav>
@@ -898,7 +899,9 @@
               alt="3D Sculpture of Koda"
               auto-rotate
               camera-controls
-              shadow-intensity="1"
+              shadow-intensity="0"
+              exposure="1.4"
+              environment-image="neutral"
               loading="eager"
             ></model-viewer>
           </div>
@@ -910,6 +913,24 @@
         <p class="card-meta">
           Center for Agile and Adaptive Additive Manufacturing · UNT · June 2025
         </p>
+        <ul class="bullet-list" style="margin-bottom: 1.5rem">
+          <li>
+            Completed an intensive week-long program on additive manufacturing
+            and its applications in engineering.
+          </li>
+          <li>
+            Attended modules on data science, cybersecurity, materials science,
+            supply chain logistics, and diagnostics.
+          </li>
+          <li>
+            Participated in hands-on lab sessions with advanced equipment to
+            apply classroom principles to real-world manufacturing problems.
+          </li>
+          <li>
+            Gained exposure to interdisciplinary collaboration and research
+            environments within the UNT College of Engineering.
+          </li>
+        </ul>
         <div class="academic-photos">
           <img src="caam1.jpeg" class="academic-photo" alt="Lab Work" />
           <img src="caam2.jpeg" class="academic-photo" alt="Collaboration" />
@@ -931,7 +952,9 @@
             alt="3D Sculpture of Hearth"
             auto-rotate
             camera-controls
-            shadow-intensity="1"
+            shadow-intensity="0"
+            exposure="1.4"
+            environment-image="neutral"
             loading="eager"
           ></model-viewer>
         </div>
@@ -984,7 +1007,7 @@
       <div class="contact-section reveal">
         <h2 class="contact-title">Let's connect! ✉️</h2>
         <p class="contact-sub">
-          Always down to connect, collaborate, or just chat about innovation &amp;
+          Always down to connect, collaborate, or just chat about 3D art &amp;
           code!
         </p>
         <div class="contact-links">
@@ -1076,7 +1099,7 @@
 
       musicBtn.addEventListener("click", () => {
         musicOn = !musicOn;
-        musicText.innerText = musicOn ? "Music Off" : "Music On";
+        musicText.innerText = musicOn ? "Music On" : "Music Off";
         if (musicOn) {
           audio.play();
         } else {
