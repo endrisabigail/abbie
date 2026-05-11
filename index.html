@@ -376,6 +376,7 @@
         background: rgba(122, 156, 224, 0.07);
       }
 
+      /* ── Scroll indicator ── */
       .scroll-hint {
         position: absolute;
         bottom: 2.5rem;
@@ -725,26 +726,6 @@
         box-shadow: 0 8px 28px rgba(122, 156, 224, 0.35);
       }
 
-      #spotify-container {
-        margin-top: 2rem;
-        border-radius: 20px;
-        overflow: hidden;
-        display: none;
-        animation: fadeSlideUp 0.4s ease both;
-        position: relative;
-        z-index: 1;
-      }
-      @keyframes fadeSlideUp {
-        from {
-          opacity: 0;
-          transform: translateY(14px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
       footer {
         text-align: center;
         padding-bottom: 3rem;
@@ -867,7 +848,7 @@
       <div class="reveal">
         <div class="hero-eyebrow">
           <div class="status-dot"></div>
-          Interning at Palo Alto Networks - Systems Engineer
+          Interning at Palo Alto Networks — Systems Engineer
         </div>
         <h1 class="hero-title">Hi! I'm Abigail <span class="wave">👋</span></h1>
         <p class="hero-sub">
@@ -1030,23 +1011,7 @@
           Download Resume ↓
         </a>
 
-        <div id="spotify-container">
-          <iframe
-            style="border-radius: 12px"
-            src=""
-            width="100%"
-            height="352"
-            frameborder="0"
-            allowfullscreen=""
-            allow="
-              autoplay;
-              clipboard-write;
-              encrypted-media;
-              fullscreen;
-              picture-in-picture;
-            "
-          ></iframe>
-        </div>
+        <audio id="bg-audio" src="song.mp3" loop preload="auto"></audio>
       </div>
     </section>
 
@@ -1105,21 +1070,18 @@
 
       const musicBtn = document.getElementById("music-toggle");
       const musicText = document.getElementById("music-text");
-      const spotifyContainer = document.getElementById("spotify-container");
-      const spotifyIframe = spotifyContainer.querySelector("iframe");
-      const SPOTIFY_SRC =
-        "https://open.spotify.com/embed/playlist/4Q2wh1SBb5bnXaND79lBHG?utm_source=generator";
+      const audio = document.getElementById("bg-audio");
+      audio.volume = 0.4;
       let musicOn = false;
 
       musicBtn.addEventListener("click", () => {
         musicOn = !musicOn;
         musicText.innerText = musicOn ? "Music On" : "Music Off";
         if (musicOn) {
-          spotifyIframe.src = SPOTIFY_SRC;
-          spotifyContainer.style.display = "block";
+          audio.play();
         } else {
-          spotifyIframe.src = "";
-          spotifyContainer.style.display = "none";
+          audio.pause();
+          audio.currentTime = 0;
         }
       });
 
