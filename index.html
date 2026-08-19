@@ -1,1214 +1,1648 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Abigail Endris : Portfolio</title>
-    <script
-      type="module"
-      src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"
-    ></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Outfit:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,900;1,900&display=swap"
-      rel="stylesheet"
-    />
-    <style>
-      :root {
-        --aura-pink: #fbc2eb;
-        --aura-blue: #a6c1ee;
-        --aura-peach: #ffd6b0;
-        --soft-clay: #3d3028;
-        --glass: rgba(255, 255, 255, 0.55);
-        --glass-border: rgba(255, 255, 255, 0.75);
-        --white: #ffffff;
-        --accent: #7a9ce0;
-        --accent-warm: #e8a87c;
-        --status-bg: #e0f7f4;
-        --status-text: #00796b;
-        --card-bg: rgba(255, 255, 255, 0.7);
-        --shadow: 0 8px 32px rgba(100, 80, 60, 0.08);
-        --shadow-hover: 0 20px 60px rgba(100, 80, 60, 0.14);
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Abigail Endris : Portfolio</title>
+  <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Outfit:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,900;1,900&display=swap"
+    rel="stylesheet" />
+  <style>
+    :root {
+      --aura-pink: #fbc2eb;
+      --aura-blue: #a6c1ee;
+      --aura-peach: #ffd6b0;
+      --soft-clay: #3d3028;
+      --glass: rgba(255, 255, 255, 0.55);
+      --glass-border: rgba(255, 255, 255, 0.75);
+      --white: #ffffff;
+      --accent: #7a9ce0;
+      --accent-warm: #e8a87c;
+      --status-bg: #e0f7f4;
+      --status-text: #00796b;
+      --card-bg: rgba(255, 255, 255, 0.7);
+      --shadow: 0 8px 32px rgba(100, 80, 60, 0.08);
+      --shadow-hover: 0 20px 60px rgba(100, 80, 60, 0.14);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      cursor: none;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: #fdfaf6;
+      color: var(--soft-clay);
+      font-family: "Outfit", sans-serif;
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 9998;
+      opacity: 0.4;
+    }
+
+    .aura {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(130px);
+      z-index: -1;
+      opacity: 0.35;
+      pointer-events: none;
+    }
+
+    .aura-1 {
+      width: 560px;
+      height: 560px;
+      background: var(--aura-pink);
+      top: -8%;
+      right: -8%;
+      animation: drift1 18s ease-in-out infinite alternate;
+    }
+
+    .aura-2 {
+      width: 460px;
+      height: 460px;
+      background: var(--aura-blue);
+      bottom: 8%;
+      left: -8%;
+      animation: drift2 22s ease-in-out infinite alternate;
+    }
+
+    .aura-3 {
+      width: 320px;
+      height: 320px;
+      background: var(--aura-peach);
+      top: 45%;
+      left: 35%;
+      animation: drift3 14s ease-in-out infinite alternate;
+    }
+
+    @keyframes drift1 {
+      from {
+        transform: translate(0, 0) scale(1);
       }
 
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        cursor: none;
+      to {
+        transform: translate(4%, 6%) scale(1.05);
       }
-      html {
-        scroll-behavior: smooth;
-      }
-      body {
-        background: #fdfaf6;
-        color: var(--soft-clay);
-        font-family: "Outfit", sans-serif;
-        overflow-x: hidden;
-        line-height: 1.6;
+    }
+
+    @keyframes drift2 {
+      from {
+        transform: translate(0, 0) scale(1);
       }
 
-      body::before {
-        content: "";
-        position: fixed;
-        inset: 0;
-        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
-        pointer-events: none;
-        z-index: 9998;
-        opacity: 0.4;
+      to {
+        transform: translate(-3%, -5%) scale(1.08);
+      }
+    }
+
+    @keyframes drift3 {
+      from {
+        transform: translate(0, 0) scale(1);
       }
 
-      .aura {
-        position: fixed;
-        border-radius: 50%;
-        filter: blur(130px);
-        z-index: -1;
-        opacity: 0.35;
-        pointer-events: none;
+      to {
+        transform: translate(5%, -4%) scale(0.95);
       }
-      .aura-1 {
-        width: 560px;
-        height: 560px;
-        background: var(--aura-pink);
-        top: -8%;
-        right: -8%;
-        animation: drift1 18s ease-in-out infinite alternate;
-      }
-      .aura-2 {
-        width: 460px;
-        height: 460px;
-        background: var(--aura-blue);
-        bottom: 8%;
-        left: -8%;
-        animation: drift2 22s ease-in-out infinite alternate;
-      }
-      .aura-3 {
-        width: 320px;
-        height: 320px;
-        background: var(--aura-peach);
-        top: 45%;
-        left: 35%;
-        animation: drift3 14s ease-in-out infinite alternate;
-      }
+    }
 
-      @keyframes drift1 {
-        from {
-          transform: translate(0, 0) scale(1);
-        }
-        to {
-          transform: translate(4%, 6%) scale(1.05);
-        }
-      }
-      @keyframes drift2 {
-        from {
-          transform: translate(0, 0) scale(1);
-        }
-        to {
-          transform: translate(-3%, -5%) scale(1.08);
-        }
-      }
-      @keyframes drift3 {
-        from {
-          transform: translate(0, 0) scale(1);
-        }
-        to {
-          transform: translate(5%, -4%) scale(0.95);
-        }
-      }
+    .mouse-bubble {
+      position: fixed;
+      width: 20px;
+      height: 20px;
+      background: rgba(255, 255, 255, 0.35);
+      border: 1.5px solid rgba(122, 156, 224, 0.5);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 10000;
+      transform: translate(-50%, -50%);
+      backdrop-filter: blur(3px);
+      transition:
+        width 0.25s,
+        height 0.25s,
+        background 0.25s,
+        border-color 0.25s;
+      mix-blend-mode: multiply;
+    }
 
-      .mouse-bubble {
-        position: fixed;
-        width: 20px;
-        height: 20px;
-        background: rgba(255, 255, 255, 0.35);
-        border: 1.5px solid rgba(122, 156, 224, 0.5);
-        border-radius: 50%;
-        pointer-events: none;
-        z-index: 10000;
-        transform: translate(-50%, -50%);
-        backdrop-filter: blur(3px);
-        transition:
-          width 0.25s,
-          height 0.25s,
-          background 0.25s,
-          border-color 0.25s;
-        mix-blend-mode: multiply;
-      }
-      .bubble-particle {
-        position: fixed;
-        background: rgba(166, 193, 238, 0.35);
-        border-radius: 50%;
-        pointer-events: none;
-        z-index: 9999;
-        animation: bubbleFade 1s ease-out forwards;
-      }
-      @keyframes bubbleFade {
-        0% {
-          transform: scale(1) translateY(0);
-          opacity: 0.5;
-        }
-        100% {
-          transform: scale(0.1) translateY(-28px);
-          opacity: 0;
-        }
-      }
+    .bubble-particle {
+      position: fixed;
+      background: rgba(166, 193, 238, 0.35);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9999;
+      animation: bubbleFade 1s ease-out forwards;
+    }
 
-      nav {
-        position: fixed;
-        top: 0;
-        width: 100%;
-        padding: 1.2rem 8%;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        z-index: 1000;
-        background: rgba(253, 250, 246, 0.7);
-        backdrop-filter: blur(20px);
-        -webkit-backdrop-filter: blur(20px);
-        border-bottom: 1px solid rgba(255, 255, 255, 0.5);
-        transition: box-shadow 0.3s;
-      }
-      nav.scrolled {
-        box-shadow: 0 4px 24px rgba(100, 80, 60, 0.07);
-      }
-      .nav-logo {
-        font-family: "Fredoka", sans-serif;
-        font-size: 1.9rem;
-        font-weight: 600;
-        letter-spacing: -0.5px;
-        background: linear-gradient(
-          135deg,
-          var(--soft-clay) 0%,
-          var(--accent) 100%
-        );
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-      }
-      .nav-links {
-        display: flex;
-        align-items: center;
-        gap: 2rem;
-      }
-      .nav-links a {
-        text-decoration: none;
-        color: var(--soft-clay);
-        font-weight: 500;
-        font-size: 0.95rem;
-        position: relative;
-        padding-bottom: 2px;
-      }
-      .nav-links a::after {
-        content: "";
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 0;
-        height: 1.5px;
-        background: var(--accent);
-        border-radius: 2px;
-        transition: width 0.3s ease;
-      }
-      .nav-links a:hover::after {
-        width: 100%;
-      }
-
-      #music-toggle {
-        font-size: 0.78rem;
-        font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 1.2px;
-        background: var(--white);
-        padding: 6px 14px;
-        border-radius: 20px;
-        display: flex;
-        align-items: center;
-        gap: 7px;
-        box-shadow: 0 3px 12px rgba(0, 0, 0, 0.07);
-        transition:
-          box-shadow 0.2s,
-          transform 0.2s;
-      }
-      #music-toggle:hover {
-        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-        transform: translateY(-1px);
-      }
-      #music-toggle .note {
-        font-size: 1rem;
-        animation: noteWiggle 2s ease-in-out infinite;
-      }
-      @keyframes noteWiggle {
-        0%,
-        100% {
-          transform: rotate(-8deg);
-        }
-        50% {
-          transform: rotate(8deg);
-        }
-      }
-
-      #hero {
-        min-height: 100vh;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        padding: 0 8%;
-        padding-top: 100px;
-      }
-      .hero-eyebrow {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        background: var(--status-bg);
-        color: var(--status-text);
-        padding: 6px 16px;
-        border-radius: 50px;
-        font-size: 0.82rem;
-        font-weight: 600;
-        margin-bottom: 1.8rem;
-        width: fit-content;
-        border: 1px solid rgba(0, 150, 135, 0.15);
-      }
-      .status-dot {
-        width: 7px;
-        height: 7px;
-        background: var(--status-text);
-        border-radius: 50%;
-        animation: pulse 2s infinite;
-        flex-shrink: 0;
-      }
-      @keyframes pulse {
-        0%,
-        100% {
-          opacity: 1;
-          box-shadow: 0 0 0 0 rgba(0, 150, 135, 0.4);
-        }
-        50% {
-          opacity: 0.5;
-          box-shadow: 0 0 0 5px rgba(0, 150, 135, 0);
-        }
-      }
-      .hero-title {
-        font-family: "Playfair Display", serif;
-        font-size: clamp(3.2rem, 10vw, 6.5rem);
-        line-height: 1.05;
-        margin-bottom: 1.2rem;
-        letter-spacing: -1px;
-      }
-      .hero-title .wave {
-        display: inline-block;
-        animation: wave 2.5s ease-in-out infinite;
-        transform-origin: 70% 70%;
-      }
-      @keyframes wave {
-        0%,
-        100% {
-          transform: rotate(0deg);
-        }
-        20% {
-          transform: rotate(14deg);
-        }
-        40% {
-          transform: rotate(-6deg);
-        }
-        60% {
-          transform: rotate(10deg);
-        }
-        80% {
-          transform: rotate(-4deg);
-        }
-      }
-      .hero-sub {
-        max-width: 560px;
-        font-size: 1.2rem;
-        opacity: 0.75;
-        font-weight: 300;
-        line-height: 1.7;
-      }
-      .hero-cta {
-        display: flex;
-        gap: 1rem;
-        margin-top: 2.5rem;
-        flex-wrap: wrap;
-      }
-      .btn-primary {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        background: var(--soft-clay);
-        color: white;
-        padding: 12px 28px;
-        border-radius: 50px;
-        font-weight: 600;
-        font-size: 0.9rem;
-        text-decoration: none;
-        transition:
-          transform 0.25s,
-          box-shadow 0.25s;
-        box-shadow: 0 4px 20px rgba(61, 48, 40, 0.2);
-      }
-      .btn-primary:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 8px 30px rgba(61, 48, 40, 0.28);
-      }
-      .btn-secondary {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        background: transparent;
-        color: var(--soft-clay);
-        padding: 12px 28px;
-        border-radius: 50px;
-        font-weight: 600;
-        font-size: 0.9rem;
-        text-decoration: none;
-        border: 1.5px solid rgba(61, 48, 40, 0.2);
-        transition:
-          transform 0.25s,
-          border-color 0.25s,
-          background 0.25s;
-      }
-      .btn-secondary:hover {
-        transform: translateY(-3px);
-        border-color: var(--accent);
-        background: rgba(122, 156, 224, 0.07);
-      }
-
-      .scroll-hint {
-        position: absolute;
-        bottom: 2.5rem;
-        left: 8%;
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        opacity: 0.45;
-        font-size: 0.78rem;
-        font-weight: 600;
-        letter-spacing: 1.5px;
-        text-transform: uppercase;
-        animation: fadeInUp 1s 1.5s both;
-      }
-      .scroll-line {
-        width: 40px;
-        height: 1px;
-        background: var(--soft-clay);
-        animation: expandLine 2s 2s ease-in-out infinite alternate;
-      }
-      @keyframes expandLine {
-        from {
-          width: 24px;
-          opacity: 0.4;
-        }
-        to {
-          width: 50px;
-          opacity: 0.8;
-        }
-      }
-
-      .section {
-        padding: 7rem 8%;
-        position: relative;
-      }
-      .section-header {
-        display: flex;
-        align-items: baseline;
-        gap: 1rem;
-        margin-bottom: 3.5rem;
-      }
-      .section-title {
-        font-family: "Playfair Display", serif;
-        font-size: clamp(2rem, 5vw, 3rem);
-        line-height: 1.1;
-      }
-      .section-line {
-        flex: 1;
-        height: 1px;
-        background: linear-gradient(90deg, rgba(61, 48, 40, 0.15), transparent);
-        margin-bottom: 4px;
-      }
-
-      .academic-card {
-        background: var(--card-bg);
-        backdrop-filter: blur(16px);
-        -webkit-backdrop-filter: blur(16px);
-        border-radius: 32px;
-        padding: 2.8rem;
-        border: 1px solid var(--glass-border);
-        margin-bottom: 2rem;
-        box-shadow: var(--shadow);
-        transition:
-          transform 0.4s ease,
-          box-shadow 0.4s ease;
-      }
-      .academic-card:hover {
-        transform: translateY(-4px);
-        box-shadow: var(--shadow-hover);
-      }
-      .academic-card h3 {
-        font-size: 1.25rem;
-        font-weight: 700;
-        margin-bottom: 0.4rem;
-      }
-      .card-meta {
-        color: var(--accent);
-        font-weight: 700;
-        font-size: 0.85rem;
-        letter-spacing: 0.3px;
-        margin-bottom: 1.2rem;
-      }
-
-      .edu-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 2.5rem;
-        align-items: start;
-      }
-      .edu-label {
-        font-size: 0.72rem;
-        font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 1.5px;
-        opacity: 0.4;
-        margin-bottom: 0.8rem;
-      }
-      .cert-list {
-        display: flex;
-        flex-direction: column;
-        gap: 0.9rem;
-      }
-      .cert-item {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-      }
-      .cert-icon {
-        width: 36px;
-        height: 36px;
-        background: rgba(122, 156, 224, 0.12);
-        border-radius: 10px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 1rem;
-        flex-shrink: 0;
-      }
-      .cert-name {
-        font-weight: 600;
-        font-size: 0.9rem;
-      }
-      .cert-date {
-        font-size: 0.78rem;
-        opacity: 0.55;
-      }
-
-      .capstone-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 2rem;
-        align-items: center;
-      }
-      .bullet-list {
-        padding-left: 1.4rem;
-        opacity: 0.78;
-        display: flex;
-        flex-direction: column;
-        gap: 0.5rem;
-      }
-      .bullet-list li {
-        line-height: 1.6;
-      }
-
-      .academic-photos {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 12px;
-        margin-top: 1.5rem;
-      }
-      .academic-photo {
-        width: 100%;
-        height: 190px;
-        border-radius: 18px;
-        object-fit: cover;
-        background: #e8e0d8;
-        transition:
-          transform 0.3s ease,
-          box-shadow 0.3s ease;
-      }
-      .academic-photo:hover {
-        transform: scale(1.03);
-        box-shadow: 0 12px 35px rgba(100, 80, 60, 0.15);
-      }
-
-      .project-card {
-        background: var(--card-bg);
-        backdrop-filter: blur(16px);
-        -webkit-backdrop-filter: blur(16px);
-        border-radius: 36px;
-        padding: 3rem;
-        margin-bottom: 2rem;
-        border: 1px solid var(--glass-border);
-        display: grid;
-        grid-template-columns: 1fr 1.3fr;
-        gap: 3rem;
-        align-items: center;
-        box-shadow: var(--shadow);
-        transition:
-          transform 0.4s ease,
-          box-shadow 0.4s ease;
-        position: relative;
-      }
-      .project-card::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background: radial-gradient(
-          ellipse at 0% 0%,
-          rgba(251, 194, 235, 0.12),
-          transparent 60%
-        );
-        pointer-events: none;
-        transition: opacity 0.4s;
-        opacity: 0;
-      }
-      .project-card:hover::before {
-        opacity: 1;
-      }
-      .project-card:hover {
-        transform: translateY(-5px);
-        box-shadow: var(--shadow-hover);
-      }
-      .project-card.reverse {
-        grid-template-columns: 1.3fr 1fr;
-      }
-      .project-card.reverse .project-visual-container {
-        order: 2;
-      }
-      .project-card.reverse .project-content {
-        order: 1;
-      }
-
-      .project-visual-container {
-        width: 100%;
-        height: 340px;
-        background: transparent;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        overflow: visible;
-      }
-      .project-visual-container img {
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
-      }
-
-      @keyframes softBounce {
-        0%,
-        100% {
-          transform: translateY(0px);
-        }
-        50% {
-          transform: translateY(-14px);
-        }
-      }
-      model-viewer {
-        width: 100%;
-        height: 100%;
-        --poster-color: transparent;
-        background-color: transparent;
-        animation: softBounce 5s ease-in-out infinite;
-        --exposure: 1.4;
-        --shadow-intensity: 0;
-        --ambient-intensity: 1;
-      }
-
-      .project-content h3 {
-        font-size: 1.3rem;
-        font-weight: 700;
-        margin-bottom: 0.8rem;
-        line-height: 1.3;
-      }
-      .tech-pills {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 6px;
-        margin-bottom: 1rem;
-      }
-      .tech-pill {
-        background: white;
-        padding: 4px 12px;
-        border-radius: 20px;
-        font-size: 0.75rem;
-        font-weight: 700;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-        letter-spacing: 0.2px;
-        border: 1px solid rgba(0, 0, 0, 0.04);
-      }
-      .project-desc {
-        opacity: 0.75;
-        font-size: 0.97rem;
-        line-height: 1.7;
-        margin-bottom: 1rem;
-      }
-      .btn-link {
-        color: var(--accent);
-        font-weight: 700;
-        text-decoration: none;
-        display: inline-flex;
-        align-items: center;
-        gap: 4px;
-        font-size: 0.9rem;
-        border-bottom: 2px solid transparent;
-        padding-bottom: 1px;
-        transition:
-          border-color 0.25s,
-          gap 0.25s;
-      }
-      .btn-link:hover {
-        border-color: var(--accent);
-        gap: 8px;
-      }
-
-      .contact-section {
-        text-align: center;
-        background: var(--card-bg);
-        backdrop-filter: blur(20px);
-        -webkit-backdrop-filter: blur(20px);
-        border-radius: 48px;
-        padding: 5rem 3rem;
-        margin-bottom: 4rem;
-        border: 1px solid var(--glass-border);
-        box-shadow: var(--shadow);
-        position: relative;
-        overflow: hidden;
-      }
-      .contact-section::after {
-        content: "";
-        position: absolute;
-        top: -50%;
-        left: -20%;
-        width: 70%;
-        height: 200%;
-        background: radial-gradient(
-          ellipse,
-          rgba(166, 193, 238, 0.12),
-          transparent 60%
-        );
-        pointer-events: none;
-      }
-      .contact-title {
-        font-family: "Playfair Display", serif;
-        font-size: clamp(2.2rem, 5vw, 3.5rem);
-        margin-bottom: 0.6rem;
-        position: relative;
-        z-index: 1;
-      }
-      .contact-sub {
-        font-size: 1.05rem;
-        opacity: 0.72;
-        margin-bottom: 2.5rem;
-        max-width: 480px;
-        margin-left: auto;
-        margin-right: auto;
-        position: relative;
-        z-index: 1;
-      }
-      .contact-links {
-        display: flex;
-        justify-content: center;
-        gap: 1.5rem;
-        margin-bottom: 2.5rem;
-        flex-wrap: wrap;
-        position: relative;
-        z-index: 1;
-      }
-      .contact-links a {
-        font-size: 1rem;
-        color: var(--soft-clay);
-        font-weight: 600;
-        text-decoration: none;
-        padding: 10px 22px;
-        border-radius: 50px;
-        background: white;
-        box-shadow: 0 3px 14px rgba(0, 0, 0, 0.07);
-        border: 1px solid rgba(0, 0, 0, 0.04);
-        transition:
-          transform 0.25s,
-          box-shadow 0.25s,
-          color 0.25s;
-      }
-      .contact-links a:hover {
-        color: var(--accent);
-        transform: translateY(-3px);
-        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-      }
-      .resume-btn {
-        position: relative;
-        z-index: 1;
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        font-size: 0.95rem;
-        font-weight: 700;
-        color: var(--soft-clay);
-        border: 2px solid var(--accent);
-        padding: 13px 32px;
-        border-radius: 50px;
-        text-decoration: none;
-        transition:
-          background 0.25s,
-          color 0.25s,
-          transform 0.25s,
-          box-shadow 0.25s;
-        margin-bottom: 2.5rem;
-      }
-      .resume-btn:hover {
-        background: var(--accent);
-        color: white;
-        transform: translateY(-3px);
-        box-shadow: 0 8px 28px rgba(122, 156, 224, 0.35);
-      }
-
-      footer {
-        text-align: center;
-        padding-bottom: 3rem;
+    @keyframes bubbleFade {
+      0% {
+        transform: scale(1) translateY(0);
         opacity: 0.5;
-        font-size: 0.85rem;
-        letter-spacing: 0.3px;
       }
 
-      .reveal {
+      100% {
+        transform: scale(0.1) translateY(-28px);
         opacity: 0;
-        transform: translateY(28px);
-        transition:
-          opacity 0.8s ease,
-          transform 0.8s ease;
       }
-      .reveal.visible {
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      padding: 1.2rem 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+      background: rgba(253, 250, 246, 0.7);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+      transition: box-shadow 0.3s;
+    }
+
+    nav.scrolled {
+      box-shadow: 0 4px 24px rgba(100, 80, 60, 0.07);
+    }
+
+    .nav-logo {
+      font-family: "Fredoka", sans-serif;
+      font-size: 1.9rem;
+      font-weight: 600;
+      letter-spacing: -0.5px;
+      background: linear-gradient(135deg,
+          var(--soft-clay) 0%,
+          var(--accent) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--soft-clay);
+      font-weight: 500;
+      font-size: 0.95rem;
+      position: relative;
+      padding-bottom: 2px;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 1.5px;
+      background: var(--accent);
+      border-radius: 2px;
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    #music-toggle {
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      background: var(--white);
+      padding: 6px 14px;
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      box-shadow: 0 3px 12px rgba(0, 0, 0, 0.07);
+      transition:
+        box-shadow 0.2s,
+        transform 0.2s;
+    }
+
+    #music-toggle:hover {
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+      transform: translateY(-1px);
+    }
+
+    #music-toggle .note {
+      font-size: 1rem;
+      animation: noteWiggle 2s ease-in-out infinite;
+    }
+
+    @keyframes noteWiggle {
+
+      0%,
+      100% {
+        transform: rotate(-8deg);
+      }
+
+      50% {
+        transform: rotate(8deg);
+      }
+    }
+
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 0 8%;
+      padding-top: 100px;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--status-bg);
+      color: var(--status-text);
+      padding: 6px 16px;
+      border-radius: 50px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      margin-bottom: 1.8rem;
+      width: fit-content;
+      border: 1px solid rgba(0, 150, 135, 0.15);
+    }
+
+    .status-dot {
+      width: 7px;
+      height: 7px;
+      background: var(--status-text);
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+      flex-shrink: 0;
+    }
+
+    @keyframes pulse {
+
+      0%,
+      100% {
+        opacity: 1;
+        box-shadow: 0 0 0 0 rgba(0, 150, 135, 0.4);
+      }
+
+      50% {
+        opacity: 0.5;
+        box-shadow: 0 0 0 5px rgba(0, 150, 135, 0);
+      }
+    }
+
+    .hero-title {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(3.2rem, 10vw, 6.5rem);
+      line-height: 1.05;
+      margin-bottom: 1.2rem;
+      letter-spacing: -1px;
+    }
+
+    .hero-title .wave {
+      display: inline-block;
+      animation: wave 2.5s ease-in-out infinite;
+      transform-origin: 70% 70%;
+    }
+
+    @keyframes wave {
+
+      0%,
+      100% {
+        transform: rotate(0deg);
+      }
+
+      20% {
+        transform: rotate(14deg);
+      }
+
+      40% {
+        transform: rotate(-6deg);
+      }
+
+      60% {
+        transform: rotate(10deg);
+      }
+
+      80% {
+        transform: rotate(-4deg);
+      }
+    }
+
+    .hero-sub {
+      max-width: 560px;
+      font-size: 1.2rem;
+      opacity: 0.75;
+      font-weight: 300;
+      line-height: 1.7;
+    }
+
+    .hero-cta {
+      display: flex;
+      gap: 1rem;
+      margin-top: 2.5rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--soft-clay);
+      color: white;
+      padding: 12px 28px;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      text-decoration: none;
+      transition:
+        transform 0.25s,
+        box-shadow 0.25s;
+      box-shadow: 0 4px 20px rgba(61, 48, 40, 0.2);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 30px rgba(61, 48, 40, 0.28);
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: transparent;
+      color: var(--soft-clay);
+      padding: 12px 28px;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      text-decoration: none;
+      border: 1.5px solid rgba(61, 48, 40, 0.2);
+      transition:
+        transform 0.25s,
+        border-color 0.25s,
+        background 0.25s;
+    }
+
+    .btn-secondary:hover {
+      transform: translateY(-3px);
+      border-color: var(--accent);
+      background: rgba(122, 156, 224, 0.07);
+    }
+
+    .scroll-hint {
+      position: absolute;
+      bottom: 2.5rem;
+      left: 8%;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      opacity: 0.45;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      animation: fadeInUp 1s 1.5s both;
+    }
+
+    .scroll-line {
+      width: 40px;
+      height: 1px;
+      background: var(--soft-clay);
+      animation: expandLine 2s 2s ease-in-out infinite alternate;
+    }
+
+    @keyframes expandLine {
+      from {
+        width: 24px;
+        opacity: 0.4;
+      }
+
+      to {
+        width: 50px;
+        opacity: 0.8;
+      }
+    }
+
+    .section {
+      padding: 7rem 8%;
+      position: relative;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      gap: 1rem;
+      margin-bottom: 3.5rem;
+    }
+
+    .section-title {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      line-height: 1.1;
+    }
+
+    .section-line {
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, rgba(61, 48, 40, 0.15), transparent);
+      margin-bottom: 4px;
+    }
+
+    .academic-card {
+      background: var(--card-bg);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-radius: 32px;
+      padding: 2.8rem;
+      border: 1px solid var(--glass-border);
+      margin-bottom: 2rem;
+      box-shadow: var(--shadow);
+      transition:
+        transform 0.4s ease,
+        box-shadow 0.4s ease;
+    }
+
+    .academic-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .academic-card h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+    }
+
+    .card-meta {
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 0.85rem;
+      letter-spacing: 0.3px;
+      margin-bottom: 1.2rem;
+    }
+
+    .edu-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+      align-items: start;
+    }
+
+    .edu-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      opacity: 0.4;
+      margin-bottom: 0.8rem;
+    }
+
+    .cert-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+    }
+
+    .cert-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .cert-icon {
+      width: 36px;
+      height: 36px;
+      background: rgba(122, 156, 224, 0.12);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+
+    .cert-name {
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    .cert-date {
+      font-size: 0.78rem;
+      opacity: 0.55;
+    }
+
+    .capstone-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .bullet-list {
+      padding-left: 1.4rem;
+      opacity: 0.78;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .bullet-list li {
+      line-height: 1.6;
+    }
+
+    .academic-photos {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 1.5rem;
+    }
+
+    .academic-photo {
+      width: 100%;
+      height: 190px;
+      border-radius: 18px;
+      object-fit: cover;
+      background: #e8e0d8;
+      transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+    }
+
+    .academic-photo:hover {
+      transform: scale(1.03);
+      box-shadow: 0 12px 35px rgba(100, 80, 60, 0.15);
+    }
+
+    /* Photobook — swipeable photo carousel */
+    .photobook {
+      margin-top: 1.5rem;
+      background: rgba(255, 255, 255, 0.5);
+      border: 1px solid var(--glass-border);
+      border-radius: 24px;
+      padding: 1.4rem;
+      position: relative;
+    }
+
+    .photobook-tape {
+      position: absolute;
+      top: -11px;
+      left: 32px;
+      width: 64px;
+      height: 24px;
+      background: rgba(255, 214, 176, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.7);
+      border-radius: 2px;
+      transform: rotate(-4deg);
+      box-shadow: 0 3px 8px rgba(100, 80, 60, 0.1);
+      z-index: 2;
+    }
+
+    .photobook-stage {
+      position: relative;
+      width: 100%;
+      height: 320px;
+      border-radius: 16px;
+      overflow: hidden;
+      background: #e8e0d8;
+    }
+
+    .photobook-slide {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transform: scale(0.97);
+      transition:
+        opacity 0.5s ease,
+        transform 0.5s ease;
+      pointer-events: none;
+    }
+
+    .photobook-slide.active {
+      opacity: 1;
+      transform: scale(1);
+      pointer-events: auto;
+    }
+
+    .photobook-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .photobook-controls {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 1rem;
+    }
+
+    .photobook-meta {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .photobook-arrow {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      border: 1.5px solid rgba(61, 48, 40, 0.15);
+      background: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--soft-clay);
+      flex-shrink: 0;
+      transition:
+        transform 0.2s,
+        border-color 0.2s,
+        background 0.2s;
+    }
+
+    .photobook-arrow:hover {
+      transform: translateY(-2px);
+      border-color: var(--accent);
+      background: rgba(122, 156, 224, 0.08);
+    }
+
+    .photobook-caption {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      opacity: 0.5;
+    }
+
+    .photobook-dots {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      justify-content: center;
+      max-width: 160px;
+    }
+
+    .photobook-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: rgba(61, 48, 40, 0.18);
+      transition:
+        background 0.2s,
+        transform 0.2s;
+    }
+
+    .photobook-dot.active {
+      background: var(--accent);
+      transform: scale(1.4);
+    }
+
+    /* Asset viewer — browse 3D characters/props */
+    .asset-viewer {
+      width: 100%;
+    }
+
+    .asset-stage {
+      position: relative;
+      width: 100%;
+      height: 300px;
+    }
+
+    .asset-slide {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transform: scale(0.94);
+      transition:
+        opacity 0.45s ease,
+        transform 0.45s ease;
+      pointer-events: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .asset-slide.active {
+      opacity: 1;
+      transform: scale(1);
+      pointer-events: auto;
+    }
+
+    .asset-slide model-viewer {
+      width: 100%;
+      height: 100%;
+    }
+
+    .asset-label {
+      text-align: center;
+      font-weight: 700;
+      font-size: 0.85rem;
+      margin-top: 0.2rem;
+      color: var(--soft-clay);
+      opacity: 0.8;
+      letter-spacing: 0.2px;
+    }
+
+    .asset-controls {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.2rem;
+      margin-top: 0.7rem;
+    }
+
+    .project-card {
+      background: var(--card-bg);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-radius: 36px;
+      padding: 3rem;
+      margin-bottom: 2rem;
+      border: 1px solid var(--glass-border);
+      display: grid;
+      grid-template-columns: 1fr 1.3fr;
+      gap: 3rem;
+      align-items: center;
+      box-shadow: var(--shadow);
+      transition:
+        transform 0.4s ease,
+        box-shadow 0.4s ease;
+      position: relative;
+    }
+
+    .project-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 0% 0%,
+          rgba(251, 194, 235, 0.12),
+          transparent 60%);
+      pointer-events: none;
+      transition: opacity 0.4s;
+      opacity: 0;
+    }
+
+    .project-card:hover::before {
+      opacity: 1;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .project-card.reverse {
+      grid-template-columns: 1.3fr 1fr;
+    }
+
+    .project-card.reverse .project-visual-container {
+      order: 2;
+    }
+
+    .project-card.reverse .project-content {
+      order: 1;
+    }
+
+    .project-visual-container {
+      width: 100%;
+      height: 340px;
+      background: transparent;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: visible;
+    }
+
+    .project-visual-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    @keyframes softBounce {
+
+      0%,
+      100% {
+        transform: translateY(0px);
+      }
+
+      50% {
+        transform: translateY(-14px);
+      }
+    }
+
+    model-viewer {
+      width: 100%;
+      height: 100%;
+      --poster-color: transparent;
+      background-color: transparent;
+      animation: softBounce 5s ease-in-out infinite;
+      --exposure: 1.4;
+      --shadow-intensity: 0;
+      --ambient-intensity: 1;
+    }
+
+    .project-content h3 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 0.8rem;
+      line-height: 1.3;
+    }
+
+    .tech-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 1rem;
+    }
+
+    .tech-pill {
+      background: white;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      letter-spacing: 0.2px;
+      border: 1px solid rgba(0, 0, 0, 0.04);
+    }
+
+    .project-desc {
+      opacity: 0.75;
+      font-size: 0.97rem;
+      line-height: 1.7;
+      margin-bottom: 1rem;
+    }
+
+    .btn-link {
+      color: var(--accent);
+      font-weight: 700;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 0.9rem;
+      border-bottom: 2px solid transparent;
+      padding-bottom: 1px;
+      transition:
+        border-color 0.25s,
+        gap 0.25s;
+    }
+
+    .btn-link:hover {
+      border-color: var(--accent);
+      gap: 8px;
+    }
+
+    .contact-section {
+      text-align: center;
+      background: var(--card-bg);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-radius: 48px;
+      padding: 5rem 3rem;
+      margin-bottom: 4rem;
+      border: 1px solid var(--glass-border);
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-section::after {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -20%;
+      width: 70%;
+      height: 200%;
+      background: radial-gradient(ellipse,
+          rgba(166, 193, 238, 0.12),
+          transparent 60%);
+      pointer-events: none;
+    }
+
+    .contact-title {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(2.2rem, 5vw, 3.5rem);
+      margin-bottom: 0.6rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .contact-sub {
+      font-size: 1.05rem;
+      opacity: 0.72;
+      margin-bottom: 2.5rem;
+      max-width: 480px;
+      margin-left: auto;
+      margin-right: auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-bottom: 2.5rem;
+      flex-wrap: wrap;
+      position: relative;
+      z-index: 1;
+    }
+
+    .contact-links a {
+      font-size: 1rem;
+      color: var(--soft-clay);
+      font-weight: 600;
+      text-decoration: none;
+      padding: 10px 22px;
+      border-radius: 50px;
+      background: white;
+      box-shadow: 0 3px 14px rgba(0, 0, 0, 0.07);
+      border: 1px solid rgba(0, 0, 0, 0.04);
+      transition:
+        transform 0.25s,
+        box-shadow 0.25s,
+        color 0.25s;
+    }
+
+    .contact-links a:hover {
+      color: var(--accent);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    }
+
+    .resume-btn {
+      position: relative;
+      z-index: 1;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--soft-clay);
+      border: 2px solid var(--accent);
+      padding: 13px 32px;
+      border-radius: 50px;
+      text-decoration: none;
+      transition:
+        background 0.25s,
+        color 0.25s,
+        transform 0.25s,
+        box-shadow 0.25s;
+      margin-bottom: 2.5rem;
+    }
+
+    .resume-btn:hover {
+      background: var(--accent);
+      color: white;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 28px rgba(122, 156, 224, 0.35);
+    }
+
+    footer {
+      text-align: center;
+      padding-bottom: 3rem;
+      opacity: 0.5;
+      font-size: 0.85rem;
+      letter-spacing: 0.3px;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition:
+        opacity 0.8s ease,
+        transform 0.8s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-delay-1 {
+      transition-delay: 0.1s;
+    }
+
+    .reveal-delay-2 {
+      transition-delay: 0.2s;
+    }
+
+    .reveal-delay-3 {
+      transition-delay: 0.3s;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(16px);
+      }
+
+      to {
         opacity: 1;
         transform: translateY(0);
       }
-      .reveal-delay-1 {
-        transition-delay: 0.1s;
-      }
-      .reveal-delay-2 {
-        transition-delay: 0.2s;
-      }
-      .reveal-delay-3 {
-        transition-delay: 0.3s;
+    }
+
+    @media (max-width: 880px) {
+      nav {
+        padding: 1.2rem 5%;
       }
 
-      @keyframes fadeInUp {
-        from {
-          opacity: 0;
-          transform: translateY(16px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
+      .section {
+        padding: 5rem 5%;
       }
 
-      @media (max-width: 880px) {
-        nav {
-          padding: 1.2rem 5%;
-        }
-        .section {
-          padding: 5rem 5%;
-        }
-        #hero {
-          padding: 0 5%;
-          padding-top: 100px;
-        }
-        .project-card,
-        .project-card.reverse {
-          grid-template-columns: 1fr;
-        }
-        .project-card.reverse .project-visual-container {
-          order: 0;
-        }
-        .project-card.reverse .project-content {
-          order: 0;
-        }
-        .project-visual-container {
-          height: 260px;
-        }
-        .capstone-grid {
-          grid-template-columns: 1fr;
-        }
-        .edu-grid {
-          grid-template-columns: 1fr;
-        }
-        .academic-photos {
-          grid-template-columns: 1fr 1fr;
-        }
-        .academic-photos .academic-photo:last-child {
-          grid-column: 1 / -1;
-          height: 160px;
-        }
-        .contact-section {
-          padding: 3.5rem 1.5rem;
-          border-radius: 32px;
-        }
+      #hero {
+        padding: 0 5%;
+        padding-top: 100px;
       }
-      @media (max-width: 560px) {
-        .hero-title {
-          letter-spacing: -0.5px;
-        }
-        .nav-links {
-          gap: 1rem;
-        }
-        .nav-links a {
-          display: none;
-        }
-        .academic-photos {
-          grid-template-columns: 1fr;
-        }
-        .academic-photos .academic-photo:last-child {
-          grid-column: auto;
-        }
+
+      .project-card,
+      .project-card.reverse {
+        grid-template-columns: 1fr;
       }
-    </style>
-  </head>
-  <body>
-    <div class="mouse-bubble" id="mainBubble"></div>
 
-    <div class="aura aura-1"></div>
-    <div class="aura aura-2"></div>
-    <div class="aura aura-3"></div>
+      .project-card.reverse .project-visual-container {
+        order: 0;
+      }
 
-    <nav id="navbar">
-      <div class="nav-logo">ae.</div>
-      <div class="nav-links">
-        <a href="#academic">Education</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
-        <div id="music-toggle">
-          <span class="note">♫</span>
-          <span id="music-text">Music Off</span>
+      .project-card.reverse .project-content {
+        order: 0;
+      }
+
+      .project-visual-container {
+        height: 260px;
+      }
+
+      .capstone-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .edu-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .academic-photos {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .academic-photos .academic-photo:last-child {
+        grid-column: 1 / -1;
+        height: 160px;
+      }
+
+      .photobook-stage {
+        height: 240px;
+      }
+
+      .asset-stage {
+        height: 240px;
+      }
+
+      .contact-section {
+        padding: 3.5rem 1.5rem;
+        border-radius: 32px;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .hero-title {
+        letter-spacing: -0.5px;
+      }
+
+      .nav-links {
+        gap: 1rem;
+      }
+
+      .nav-links a {
+        display: none;
+      }
+
+      .academic-photos {
+        grid-template-columns: 1fr;
+      }
+
+      .academic-photos .academic-photo:last-child {
+        grid-column: auto;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="mouse-bubble" id="mainBubble"></div>
+
+  <div class="aura aura-1"></div>
+  <div class="aura aura-2"></div>
+  <div class="aura aura-3"></div>
+
+  <nav id="navbar">
+    <div class="nav-logo">ae.</div>
+    <div class="nav-links">
+      <a href="#academic">Education</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+      <div id="music-toggle">
+        <span class="note">♫</span>
+        <span id="music-text">Music Off</span>
+      </div>
+    </div>
+  </nav>
+
+  <section id="hero" style="position: relative">
+    <div class="reveal">
+      <div class="hero-eyebrow">
+        <div class="status-dot"></div>
+        CS Grad (Dec 2026) · Open to New Grad Roles
+      </div>
+      <h1 class="hero-title">Hi! I'm Abigail <span class="wave">👋</span></h1>
+      <p class="hero-sub">
+        Full-Stack Developer specializing in high-fidelity design and scalable
+        architecture. Bridging the gap between engineering rigor and
+        user-centric coziness.
+      </p>
+      <div class="hero-cta">
+        <a href="#projects" class="btn-primary">See my work ↓</a>
+        <a href="#contact" class="btn-secondary">Get in touch ↗</a>
+      </div>
+    </div>
+    <div class="scroll-hint">
+      <div class="scroll-line"></div>
+      Scroll
+    </div>
+  </section>
+
+  <section id="academic" class="section">
+    <div class="section-header">
+      <h2 class="section-title reveal">Academic Experience</h2>
+      <div class="section-line"></div>
+    </div>
+
+    <div class="academic-card reveal">
+      <div class="edu-grid">
+        <div>
+          <p class="edu-label">Education</p>
+          <h3>🎓 University of North Texas</h3>
+          <p class="card-meta">
+            B.S. Computer Science, Minor in Mathematics · Expected Dec 2026
+          </p>
+          <p style="opacity: 0.7; font-size: 0.95rem; line-height: 1.7">
+            Denton, Texas — on track to graduate with relevant coursework in
+            Data Structures, Software Engineering, and System Programming.
+          </p>
         </div>
-      </div>
-    </nav>
-
-    <section id="hero" style="position: relative">
-      <div class="reveal">
-        <div class="hero-eyebrow">
-          <div class="status-dot"></div>
-          Interning at Palo Alto Networks — Systems Engineer
-        </div>
-        <h1 class="hero-title">Hi! I'm Abigail <span class="wave">👋</span></h1>
-        <p class="hero-sub">
-          Full-Stack Developer specializing in high-fidelity design and scalable
-          architecture. Bridging the gap between engineering rigor and
-          user-centric coziness.
-        </p>
-        <div class="hero-cta">
-          <a href="#projects" class="btn-primary">See my work ↓</a>
-          <a href="#contact" class="btn-secondary">Get in touch ↗</a>
-        </div>
-      </div>
-      <div class="scroll-hint">
-        <div class="scroll-line"></div>
-        Scroll
-      </div>
-    </section>
-
-    <section id="academic" class="section">
-      <div class="section-header">
-        <h2 class="section-title reveal">Academic Experience</h2>
-        <div class="section-line"></div>
-      </div>
-
-      <div class="academic-card reveal">
-        <div class="edu-grid">
-          <div>
-            <p class="edu-label">Education</p>
-            <h3>🎓 University of North Texas</h3>
-            <p class="card-meta">B.S. Computer Science · December 2026</p>
-            <p style="opacity: 0.7; font-size: 0.95rem; line-height: 1.7">
-              Denton, Texas — on track to graduate with a focus in software
-              engineering and interactive systems.
-            </p>
-          </div>
-          <div>
-            <p class="edu-label">Certifications</p>
-            <div class="cert-list">
-              <div class="cert-item">
-                <div class="cert-icon">🐍</div>
-                <div>
-                  <p class="cert-name">Programming with Everyone</p>
-                  <p class="cert-date">
-                    Getting Started with Python · May 2025
-                  </p>
-                </div>
+        <div>
+          <p class="edu-label">Certifications</p>
+          <div class="cert-list">
+            <div class="cert-item">
+              <div class="cert-icon">🐍</div>
+              <div>
+                <p class="cert-name">Programming with Everyone</p>
+                <p class="cert-date">
+                  Getting Started with Python · May 2025
+                </p>
               </div>
-              <div class="cert-item">
-                <div class="cert-icon">☁️</div>
-                <div>
-                  <p class="cert-name">Introduction to Cloud Computing</p>
-                  <p class="cert-date">August 2025</p>
-                </div>
+            </div>
+            <div class="cert-item">
+              <div class="cert-icon">☁️</div>
+              <div>
+                <p class="cert-name">Introduction to Cloud Computing</p>
+                <p class="cert-date">August 2025</p>
               </div>
-              <div class="cert-item">
-                <div class="cert-icon">🔁</div>
-                <div>
-                  <p class="cert-name">
-                    Continuous Integration and Continuous Delivery
-                  </p>
-                  <p class="cert-date">August 2025</p>
-                </div>
+            </div>
+            <div class="cert-item">
+              <div class="cert-icon">🔁</div>
+              <div>
+                <p class="cert-name">
+                  Continuous Integration and Continuous Delivery
+                </p>
+                <p class="cert-date">August 2025</p>
               </div>
             </div>
           </div>
         </div>
       </div>
+    </div>
 
-      <div class="academic-card reveal reveal-delay-1">
-        <div class="capstone-grid">
-          <div>
-            <h3>Koda: Senior Capstone Project</h3>
-            <p class="card-meta">
-              Lead UI/UX Designer · Team Developer · UNT · 2026
-            </p>
-            <ul class="bullet-list">
-              <li>
-                Engineered secure Login and Registration flows using JWT-based
-                authentication and bcrypt user database password encryption.
-              </li>
-              <li>
-                Led and created user interaction related documentation for
-                parent, child, and caregiver synchronization/interactions
-                (wireframes, and SRS user interaction documentation).
-              </li>
-              <li>
-                Designed a high-fidelity 3D sculpture and environment to
-                visualize user flow.
-              </li>
-            </ul>
+    <div class="academic-card reveal reveal-delay-1">
+      <h3>Systems Engineer Intern</h3>
+      <p class="card-meta">
+        Palo Alto Networks · Plano, TX · May 2026 – August 2026
+      </p>
+      <ul class="bullet-list" style="margin-bottom: 1.5rem">
+        <li>
+          Configured and hardened a Palo Alto PA-415 firewall running
+          PAN-OS — routing outbound internet access and verifying stateful
+          traffic filtering across Layer 3 interfaces via custom NAT
+          rules, routing tables, and inter-zone security policies.
+        </li>
+        <li>
+          Enforced strict network isolation to prevent lateral movement
+          toward internal zones and applied a 60-minute DHCP lease
+          allocation limit to minimize dynamic host exposure.
+        </li>
+        <li>
+          Developed a full-stack project management web app (MERN,
+          Firebase Auth, Socket.IO, custom 3D assets, integrated AI
+          assistant) alongside the internship.
+        </li>
+        <li>
+          Co-presented a live Cortex XSIAM product demonstration to a PANW
+          VP with a fellow intern.
+        </li>
+      </ul>
+      <div class="photobook" data-carousel="panw">
+        <div class="photobook-tape"></div>
+        <div class="photobook-stage">
+          <div class="photobook-slide active">
+            <img src="panw1.jpeg" alt="Palo Alto Networks internship photo 1" />
           </div>
-          <div class="project-visual-container">
-            <model-viewer
-              src="bear.glb"
-              alt="3D Sculpture of Koda"
-              auto-rotate
-              camera-controls
-              shadow-intensity="0"
-              exposure="1.4"
-              environment-image="neutral"
-              loading="eager"
-            ></model-viewer>
+          <div class="photobook-slide">
+            <img src="panw2.jpeg" alt="Palo Alto Networks internship photo 2" />
+          </div>
+          <div class="photobook-slide">
+            <img src="panw3.jpeg" alt="Palo Alto Networks internship photo 3" />
+          </div>
+          <div class="photobook-slide">
+            <img src="panw4.jpeg" alt="Palo Alto Networks internship photo 4" />
+          </div>
+          <div class="photobook-slide">
+            <img src="panw5.jpeg" alt="Palo Alto Networks internship photo 5" />
+          </div>
+          <div class="photobook-slide">
+            <img src="panw6.jpeg" alt="Palo Alto Networks internship photo 6" />
+          </div>
+          <div class="photobook-slide">
+            <img src="panw7.jpeg" alt="Palo Alto Networks internship photo 7" />
+          </div>
+          <div class="photobook-slide">
+            <img src="panw8.jpeg" alt="Palo Alto Networks internship photo 8" />
           </div>
         </div>
-      </div>
-
-      <div class="academic-card reveal reveal-delay-2">
-        <h3>CAAM-ITEAM Summer Outreach Program</h3>
-        <p class="card-meta">
-          Center for Agile and Adaptive Additive Manufacturing · UNT · June 2025
-        </p>
-        <ul class="bullet-list" style="margin-bottom: 1.5rem">
-          <li>
-            Completed an intensive week-long program on additive manufacturing
-            and its applications in engineering.
-          </li>
-          <li>
-            Attended modules on data science, cybersecurity, materials science,
-            supply chain logistics, and diagnostics.
-          </li>
-          <li>
-            Participated in hands-on lab sessions with advanced equipment to
-            apply classroom principles to real-world manufacturing problems.
-          </li>
-          <li>
-            Gained exposure to interdisciplinary collaboration and research
-            environments within the UNT College of Engineering.
-          </li>
-        </ul>
-        <div class="academic-photos">
-          <img src="caam1.jpeg" class="academic-photo" alt="Lab Work" />
-          <img src="caam2.jpeg" class="academic-photo" alt="Collaboration" />
-          <img src="caam3.jpeg" class="academic-photo" alt="Certification" />
-        </div>
-      </div>
-    </section>
-
-    <section id="projects" class="section">
-      <div class="section-header">
-        <h2 class="section-title reveal">Passion Projects</h2>
-        <div class="section-line"></div>
-      </div>
-
-      <div class="project-card reveal">
-        <div class="project-visual-container">
-          <model-viewer
-            src="frog.glb"
-            alt="3D Sculpture of Hearth"
-            auto-rotate
-            camera-controls
-            shadow-intensity="0"
-            exposure="1.4"
-            environment-image="neutral"
-            loading="eager"
-          ></model-viewer>
-        </div>
-        <div class="project-content">
-          <h3>Hearth: Gamified Project Management App</h3>
-          <div class="tech-pills">
-            <span class="tech-pill">React</span>
-            <span class="tech-pill">MongoDB</span>
-            <span class="tech-pill">Express</span>
-            <span class="tech-pill">Blender</span>
+        <div class="photobook-controls">
+          <button class="photobook-arrow" data-action="prev" aria-label="Previous photo">‹</button>
+          <div class="photobook-meta">
+            <span class="photobook-caption" data-role="counter">01 / 08</span>
+            <div class="photobook-dots" data-role="dots"></div>
           </div>
-          <p class="project-desc">
-            Hearth turns "to-dos" into a digital garden. The entire interface is
-            anchored by a hand-crafted 3D sculpture where task completion
-            contributes to an evolving environment.
+          <button class="photobook-arrow" data-action="next" aria-label="Next photo">›</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="academic-card reveal reveal-delay-2">
+      <div class="capstone-grid">
+        <div>
+          <h3>Koda: Senior Capstone Project</h3>
+          <p class="card-meta">
+            Lead UI/UX Designer · Team Developer · UNT · 2026
           </p>
-          <a
-            href="https://hearth-umber-six.vercel.app/"
-            class="btn-link"
-            target="_blank"
-            rel="noopener"
-            >Join ↗</a
-          >
+          <ul class="bullet-list">
+            <li>
+              Engineered Login and Registration flows with JWT-based
+              authentication, form validation, and secure session logic.
+            </li>
+            <li>
+              Led wireframe sessions and authored user-interaction
+              documentation defining data flows across a complex
+              multi-user environment (parent, child, and caregiver roles).
+            </li>
+            <li>
+              Designed and built the app's 3D assets and the entire
+              frontend/user-interaction layer.
+            </li>
+          </ul>
         </div>
-      </div>
-
-      <div class="project-card reverse reveal reveal-delay-1">
-        <div class="project-visual-container">
-          <img src="jojo-sprite.gif" alt="JojoPet Sprite Animation" />
-        </div>
-        <div class="project-content">
-          <h3>🐾 JojoPet: Chrome Productivity Pet</h3>
-          <div class="tech-pills">
-            <span class="tech-pill">JavaScript</span>
-            <span class="tech-pill">Chrome Extension API</span>
-            <span class="tech-pill">Digital Art</span>
+        <div class="asset-viewer" data-carousel="koda-assets">
+          <div class="asset-stage">
+            <div class="asset-slide active" data-label="Frog">
+              <model-viewer src="frog.glb" alt="Koda frog character" auto-rotate camera-controls shadow-intensity="0"
+                exposure="1.4" environment-image="neutral" loading="eager"></model-viewer>
+            </div>
+            <div class="asset-slide" data-label="Bunny">
+              <model-viewer src="bunny.glb" alt="Koda bunny character" auto-rotate camera-controls shadow-intensity="0"
+                exposure="1.4" environment-image="neutral" loading="eager"></model-viewer>
+            </div>
+            <div class="asset-slide" data-label="Koala">
+              <model-viewer src="koala.glb" alt="Koda koala character" auto-rotate camera-controls shadow-intensity="0"
+                exposure="1.4" environment-image="neutral" loading="eager"></model-viewer>
+            </div>
+            <div class="asset-slide" data-label="Fox">
+              <model-viewer src="fox.glb" alt="Koda fox character" auto-rotate camera-controls shadow-intensity="0"
+                exposure="1.4" environment-image="neutral" loading="eager"></model-viewer>
+            </div>
+            <div class="asset-slide" data-label="Panda">
+              <model-viewer src="panda.glb" alt="Koda panda character" auto-rotate camera-controls shadow-intensity="0"
+                exposure="1.4" environment-image="neutral" loading="eager"></model-viewer>
+            </div>
+            <div class="asset-slide" data-label="Bear">
+              <model-viewer src="bear.glb" alt="Koda bear character" auto-rotate camera-controls shadow-intensity="0"
+                exposure="1.4" environment-image="neutral" loading="eager"></model-viewer>
+            </div>
           </div>
-          <p class="project-desc">
-            An interactive tool featuring a custom sprite animation pet. Jojo's
-            growth and happiness metrics are tied directly to task completion
-            rates.
-          </p>
-          <a href="#" class="btn-link">View Extension ↗</a>
+          <p class="asset-label" data-role="label">Frog</p>
+          <div class="asset-controls">
+            <button class="photobook-arrow" data-action="prev" aria-label="Previous character">‹</button>
+            <div class="photobook-dots" data-role="dots"></div>
+            <button class="photobook-arrow" data-action="next" aria-label="Next character">›</button>
+          </div>
         </div>
       </div>
-    </section>
+    </div>
 
-    <section id="contact" class="section">
-      <div class="contact-section reveal">
-        <h2 class="contact-title">Let's connect! ✉️</h2>
-        <p class="contact-sub">
-          Always down to connect, collaborate, or just chat about 3D art &amp;
-          code! *(experience not drawn to scale, see resume for further details)
+    <div class="academic-card reveal reveal-delay-3">
+      <h3>CAAM-ITEAM Summer Outreach Program</h3>
+      <p class="card-meta">
+        Center for Agile and Adaptive Additive Manufacturing · UNT · June 2025
+      </p>
+      <ul class="bullet-list" style="margin-bottom: 1.5rem">
+        <li>
+          Completed an intensive week-long program on additive manufacturing
+          and its applications in engineering.
+        </li>
+        <li>
+          Attended modules on data science, cybersecurity, materials science,
+          supply chain logistics, and diagnostics.
+        </li>
+        <li>
+          Participated in hands-on lab sessions with advanced equipment to
+          apply classroom principles to real-world manufacturing problems.
+        </li>
+        <li>
+          Gained exposure to interdisciplinary collaboration and research
+          environments within the UNT College of Engineering.
+        </li>
+      </ul>
+      <div class="academic-photos">
+        <img src="caam1.jpeg" class="academic-photo" alt="Lab Work" />
+        <img src="caam2.jpeg" class="academic-photo" alt="Collaboration" />
+        <img src="caam3.jpeg" class="academic-photo" alt="Certification" />
+      </div>
+    </div>
+  </section>
+
+  <section id="projects" class="section">
+    <div class="section-header">
+      <h2 class="section-title reveal">Passion Projects</h2>
+      <div class="section-line"></div>
+    </div>
+
+    <div class="project-card reveal">
+      <div class="asset-viewer" data-carousel="hearth-assets">
+        <div class="asset-stage">
+          <div class="asset-slide active" data-label="Frog">
+            <model-viewer src="frog.glb" alt="Hearth frog character" auto-rotate camera-controls shadow-intensity="0"
+              exposure="1.4" environment-image="neutral" loading="eager"></model-viewer>
+          </div>
+          <div class="asset-slide" data-label="Apple">
+            <model-viewer src="apple.glb" alt="Hearth apple asset" auto-rotate camera-controls shadow-intensity="0"
+              exposure="1.4" environment-image="neutral" loading="eager"></model-viewer>
+          </div>
+          <div class="asset-slide" data-label="Tomato">
+            <model-viewer src="tomato.glb" alt="Hearth tomato asset" auto-rotate camera-controls shadow-intensity="0"
+              exposure="1.4" environment-image="neutral" loading="eager"></model-viewer>
+          </div>
+          <div class="asset-slide" data-label="Snail">
+            <model-viewer src="snail.glb" alt="Hearth snail character" auto-rotate camera-controls shadow-intensity="0"
+              exposure="1.4" environment-image="neutral" loading="eager"></model-viewer>
+          </div>
+        </div>
+        <p class="asset-label" data-role="label">Frog</p>
+        <div class="asset-controls">
+          <button class="photobook-arrow" data-action="prev" aria-label="Previous asset">‹</button>
+          <div class="photobook-dots" data-role="dots"></div>
+          <button class="photobook-arrow" data-action="next" aria-label="Next asset">›</button>
+        </div>
+      </div>
+      <div class="project-content">
+        <h3>Hearth: Gamified Project Management App</h3>
+        <div class="tech-pills">
+          <span class="tech-pill">React</span>
+          <span class="tech-pill">Node.js</span>
+          <span class="tech-pill">MongoDB</span>
+          <span class="tech-pill">Socket.IO</span>
+          <span class="tech-pill">Firebase Auth</span>
+          <span class="tech-pill">Blender</span>
+        </div>
+        <p class="project-desc">
+          Hearth turns "to-dos" into a digital garden. The entire interface is
+          anchored by a hand-crafted 3D sculpture where task completion
+          contributes to an evolving environment. Includes an AI companion
+          that helps break tasks into quests to keep users motivated.
         </p>
-        <div class="contact-links">
-          <a href="mailto:endrisabigail@gmail.com">Email ↗</a>
-          <a
-            href="https://github.com/endrisabigail"
-            target="_blank"
-            rel="noopener"
-            >GitHub ↗</a
-          >
-          <a
-            href="https://linkedin.com/in/abigail-endris"
-            target="_blank"
-            rel="noopener"
-            >LinkedIn ↗</a
-          >
-        </div>
-        <br />
-        <a
-          href="Abigail_Endris_Resume.pdf"
-          download="Abigail_Endris_Resume.pdf"
-          class="resume-btn"
-        >
-          Download Resume ↓
-        </a>
-        <audio id="bg-audio" src="song.mp3" loop preload="auto"></audio>
+        <a href="https://hearth-umber-six.vercel.app/" class="btn-link" target="_blank" rel="noopener">Join ↗</a>
       </div>
-    </section>
+    </div>
 
-    <footer>
-      <p>made with ♡ &copy; 2026 Abigail Endris</p>
-    </footer>
+    <div class="academic-card reveal reveal-delay-1">
+      <h3>Firewall Configuration — PA-415</h3>
+      <div class="tech-pills" style="margin-top: 0.6rem">
+        <span class="tech-pill">PAN-OS</span>
+        <span class="tech-pill">Zero Trust</span>
+        <span class="tech-pill">NAT / Routing</span>
+      </div>
+      <p class="project-desc" style="margin-top: 1rem; margin-bottom: 0">
+        Configured and hardened a Palo Alto PA-415 firewall —
+        routing outbound internet access and verifying stateful
+        traffic filtering across Layer 3 interfaces without active
+        cloud registration, via custom NAT rules, routing tables,
+        and inter-zone security policies. Built Slack-integrated log
+        forwarding to send real-time alerts on guest network join events.
+        Enforced strict network isolation to prevent lateral movement
+        toward internal zones and applied a 60-minute DHCP lease
+        allocation limit to minimize dynamic host exposure.
+      </p>
+    </div>
+  </section>
+  <section id="contact" class="section">
+    <div class="contact-section reveal">
+      <h2 class="contact-title">Let's connect! ✉️</h2>
+      <p class="contact-sub">
+        Always down to connect, collaborate, or just chat about 3D art &amp;
+        code! *(experience not drawn to scale, see resume for further details)
+      </p>
+      <div class="contact-links">
+        <a href="mailto:endrisabigail@gmail.com">Email ↗</a>
+        <a href="https://github.com/endrisabigail" target="_blank" rel="noopener">GitHub ↗</a>
+        <a href="https://linkedin.com/in/abigail-endris" target="_blank" rel="noopener">LinkedIn ↗</a>
+      </div>
+      <br />
+      <a href="Abigail_Endris_Resume.pdf" download="Abigail_Endris_Resume.pdf" class="resume-btn">
+        Download Resume ↓
+      </a>
+      <audio id="bg-audio" src="song.mp3" loop preload="auto"></audio>
+    </div>
+  </section>
 
-    <script>
-      const mainBubble = document.getElementById("mainBubble");
-      let lastX = 0,
-        lastY = 0;
+  <footer>
+    <p>made with ♡ &copy; 2026 Abigail Endris</p>
+  </footer>
 
-      document.addEventListener("mousemove", (e) => {
-        mainBubble.style.left = e.clientX + "px";
-        mainBubble.style.top = e.clientY + "px";
-        const dist = Math.hypot(e.clientX - lastX, e.clientY - lastY);
-        if (dist > 14) {
-          createParticle(e.clientX, e.clientY);
-          lastX = e.clientX;
-          lastY = e.clientY;
-        }
+  <script>
+    const mainBubble = document.getElementById("mainBubble");
+    let lastX = 0,
+      lastY = 0;
+
+    document.addEventListener("mousemove", (e) => {
+      mainBubble.style.left = e.clientX + "px";
+      mainBubble.style.top = e.clientY + "px";
+      const dist = Math.hypot(e.clientX - lastX, e.clientY - lastY);
+      if (dist > 14) {
+        createParticle(e.clientX, e.clientY);
+        lastX = e.clientX;
+        lastY = e.clientY;
+      }
+    });
+
+    function createParticle(x, y) {
+      const p = document.createElement("div");
+      p.className = "bubble-particle";
+      const size = Math.random() * 7 + 3;
+      p.style.cssText = `width:${size}px;height:${size}px;left:${x}px;top:${y}px;`;
+      document.body.appendChild(p);
+      setTimeout(() => p.remove(), 1000);
+    }
+
+    document
+      .querySelectorAll(
+        "a, .project-card, .academic-card, #music-toggle, model-viewer",
+      )
+      .forEach((el) => {
+        el.addEventListener("mouseenter", () => {
+          mainBubble.style.width = "42px";
+          mainBubble.style.height = "42px";
+          mainBubble.style.background = "rgba(166,193,238,0.18)";
+          mainBubble.style.borderColor = "rgba(122,156,224,0.6)";
+        });
+        el.addEventListener("mouseleave", () => {
+          mainBubble.style.width = "20px";
+          mainBubble.style.height = "20px";
+          mainBubble.style.background = "rgba(255,255,255,0.35)";
+          mainBubble.style.borderColor = "rgba(122,156,224,0.5)";
+        });
       });
 
-      function createParticle(x, y) {
-        const p = document.createElement("div");
-        p.className = "bubble-particle";
-        const size = Math.random() * 7 + 3;
-        p.style.cssText = `width:${size}px;height:${size}px;left:${x}px;top:${y}px;`;
-        document.body.appendChild(p);
-        setTimeout(() => p.remove(), 1000);
+    const navbar = document.getElementById("navbar");
+    window.addEventListener("scroll", () => {
+      navbar.classList.toggle("scrolled", window.scrollY > 20);
+    });
+
+    const musicBtn = document.getElementById("music-toggle");
+    const musicText = document.getElementById("music-text");
+    const audio = document.getElementById("bg-audio");
+    audio.volume = 0.4;
+    let musicOn = false;
+
+    musicBtn.addEventListener("click", () => {
+      musicOn = !musicOn;
+      musicText.innerText = musicOn ? "Music On" : "Music Off";
+      if (musicOn) {
+        audio.play();
+      } else {
+        audio.pause();
+        audio.currentTime = 0;
+      }
+    });
+
+    const observer = new IntersectionObserver(
+      (entries) =>
+        entries.forEach((e) => {
+          if (e.isIntersecting) e.target.classList.add("visible");
+        }),
+      { threshold: 0.08 },
+    );
+    document
+      .querySelectorAll(".reveal")
+      .forEach((el) => observer.observe(el));
+
+    // Photobook / asset-viewer carousels (PANW photos, Koda + Hearth assets)
+    function initCarousel(root) {
+      const slides = Array.from(
+        root.querySelectorAll(".photobook-slide, .asset-slide"),
+      );
+      if (!slides.length) return;
+
+      const dotsContainer = root.querySelector('[data-role="dots"]');
+      const counter = root.querySelector('[data-role="counter"]');
+      const label = root.querySelector('[data-role="label"]');
+      const pad = (n) => String(n).padStart(2, "0");
+      let index = 0;
+
+      if (dotsContainer) {
+        slides.forEach((_, i) => {
+          const dot = document.createElement("span");
+          dot.className = "photobook-dot" + (i === 0 ? " active" : "");
+          dot.addEventListener("click", () => show(i));
+          dotsContainer.appendChild(dot);
+        });
       }
 
-      document
-        .querySelectorAll(
-          "a, .project-card, .academic-card, #music-toggle, model-viewer",
-        )
-        .forEach((el) => {
-          el.addEventListener("mouseenter", () => {
-            mainBubble.style.width = "42px";
-            mainBubble.style.height = "42px";
-            mainBubble.style.background = "rgba(166,193,238,0.18)";
-            mainBubble.style.borderColor = "rgba(122,156,224,0.6)";
-          });
-          el.addEventListener("mouseleave", () => {
-            mainBubble.style.width = "20px";
-            mainBubble.style.height = "20px";
-            mainBubble.style.background = "rgba(255,255,255,0.35)";
-            mainBubble.style.borderColor = "rgba(122,156,224,0.5)";
-          });
-        });
+      function show(target) {
+        slides[index].classList.remove("active");
+        if (dotsContainer) dotsContainer.children[index].classList.remove("active");
+        index = (target + slides.length) % slides.length;
+        slides[index].classList.add("active");
+        if (dotsContainer) dotsContainer.children[index].classList.add("active");
+        if (counter) counter.textContent = `${pad(index + 1)} / ${pad(slides.length)}`;
+        if (label) label.textContent = slides[index].dataset.label || "";
+      }
 
-      const navbar = document.getElementById("navbar");
-      window.addEventListener("scroll", () => {
-        navbar.classList.toggle("scrolled", window.scrollY > 20);
-      });
-
-      const musicBtn = document.getElementById("music-toggle");
-      const musicText = document.getElementById("music-text");
-      const audio = document.getElementById("bg-audio");
-      audio.volume = 0.4;
-      let musicOn = false;
-
-      musicBtn.addEventListener("click", () => {
-        musicOn = !musicOn;
-        musicText.innerText = musicOn ? "Music On" : "Music Off";
-        if (musicOn) {
-          audio.play();
-        } else {
-          audio.pause();
-          audio.currentTime = 0;
-        }
-      });
-
-      const observer = new IntersectionObserver(
-        (entries) =>
-          entries.forEach((e) => {
-            if (e.isIntersecting) e.target.classList.add("visible");
-          }),
-        { threshold: 0.08 },
+      root.querySelectorAll('[data-action="prev"]').forEach((btn) =>
+        btn.addEventListener("click", () => show(index - 1)),
       );
-      document
-        .querySelectorAll(".reveal")
-        .forEach((el) => observer.observe(el));
-    </script>
-  </body>
+      root.querySelectorAll('[data-action="next"]').forEach((btn) =>
+        btn.addEventListener("click", () => show(index + 1)),
+      );
+
+      if (counter) counter.textContent = `${pad(1)} / ${pad(slides.length)}`;
+      if (label) label.textContent = slides[0].dataset.label || "";
+    }
+
+    document.querySelectorAll("[data-carousel]").forEach(initCarousel);
+    document
+      .querySelectorAll(".photobook-arrow, .photobook-dot")
+      .forEach((el) => {
+        el.addEventListener("mouseenter", () => {
+          mainBubble.style.width = "42px";
+          mainBubble.style.height = "42px";
+          mainBubble.style.background = "rgba(166,193,238,0.18)";
+          mainBubble.style.borderColor = "rgba(122,156,224,0.6)";
+        });
+        el.addEventListener("mouseleave", () => {
+          mainBubble.style.width = "20px";
+          mainBubble.style.height = "20px";
+          mainBubble.style.background = "rgba(255,255,255,0.35)";
+          mainBubble.style.borderColor = "rgba(122,156,224,0.5)";
+        });
+      });
+  </script>
+</body>
+
 </html>
