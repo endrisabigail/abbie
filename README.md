@@ -1,6 +1,6 @@
-# abigail endris : portfolio
+# personal portfolio
 
-personal portfolio site built with vanilla HTML, CSS, and JavaScript.
+built with HTML, CSS, and JavaScript.
 
 live at [endrisabigail.github.io/abbie](https://endrisabigail.github.io/abbie)
 
