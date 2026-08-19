@@ -603,6 +603,9 @@
       border-radius: 24px;
       padding: 1.4rem;
       position: relative;
+      max-width: 420px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     .photobook-tape {
@@ -622,7 +625,8 @@
     .photobook-stage {
       position: relative;
       width: 100%;
-      height: 320px;
+      aspect-ratio: 4 / 3;
+      max-height: 260px;
       border-radius: 16px;
       overflow: hidden;
       background: #e8e0d8;
@@ -649,6 +653,7 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
+      object-position: center 20%;
     }
 
     .photobook-controls {
@@ -860,11 +865,8 @@
       --poster-color: transparent;
       background-color: transparent;
       animation: softBounce 5s ease-in-out infinite;
-      --exposure: 1.15;
-      --shadow-intensity: 0.65;
+      --shadow-intensity: 0.5;
       --shadow-softness: 1;
-      --ambient-intensity: 1;
-      filter: sepia(12%) saturate(1.08) brightness(1.02);
     }
 
     .project-content h3 {
@@ -1118,8 +1120,12 @@
         height: 160px;
       }
 
+      .photobook {
+        max-width: 100%;
+      }
+
       .photobook-stage {
-        height: 240px;
+        max-height: 220px;
       }
 
       .asset-stage {
@@ -1343,31 +1349,28 @@
         <div class="asset-viewer" data-carousel="koda-assets">
           <div class="asset-stage">
             <div class="asset-slide active" data-label="Frog">
-              <model-viewer src="frog.glb" alt="Koda frog character" auto-rotate camera-controls shadow-intensity="0.65"
-                shadow-softness="1" exposure="1.15" environment-image="legacy" loading="eager"></model-viewer>
+              <model-viewer src="frog.glb" alt="Koda frog character" auto-rotate camera-controls shadow-intensity="0.5"
+                shadow-softness="1" loading="eager"></model-viewer>
             </div>
             <div class="asset-slide" data-label="Bunny">
               <model-viewer src="bunny.glb" alt="Koda bunny character" auto-rotate camera-controls
-                shadow-intensity="0.65" shadow-softness="1" exposure="1.15" environment-image="legacy"
-                loading="eager"></model-viewer>
+                shadow-intensity="0.5" shadow-softness="1" loading="eager"></model-viewer>
             </div>
             <div class="asset-slide" data-label="Koala">
               <model-viewer src="koala.glb" alt="Koda koala character" auto-rotate camera-controls
-                shadow-intensity="0.65" shadow-softness="1" exposure="1.15" environment-image="legacy"
-                loading="eager"></model-viewer>
+                shadow-intensity="0.5" shadow-softness="1" loading="eager"></model-viewer>
             </div>
             <div class="asset-slide" data-label="Fox">
-              <model-viewer src="fox.glb" alt="Koda fox character" auto-rotate camera-controls shadow-intensity="0.65"
-                shadow-softness="1" exposure="1.15" environment-image="legacy" loading="eager"></model-viewer>
+              <model-viewer src="fox.glb" alt="Koda fox character" auto-rotate camera-controls shadow-intensity="0.5"
+                shadow-softness="1" loading="eager"></model-viewer>
             </div>
             <div class="asset-slide" data-label="Panda">
               <model-viewer src="panda.glb" alt="Koda panda character" auto-rotate camera-controls
-                shadow-intensity="0.65" shadow-softness="1" exposure="1.15" environment-image="legacy"
-                loading="eager"></model-viewer>
+                shadow-intensity="0.5" shadow-softness="1" loading="eager"></model-viewer>
             </div>
             <div class="asset-slide" data-label="Bear">
-              <model-viewer src="bear.glb" alt="Koda bear character" auto-rotate camera-controls shadow-intensity="0.65"
-                shadow-softness="1" exposure="1.15" environment-image="legacy" loading="eager"></model-viewer>
+              <model-viewer src="bear.glb" alt="Koda bear character" auto-rotate camera-controls shadow-intensity="0.5"
+                shadow-softness="1" loading="eager"></model-viewer>
             </div>
           </div>
           <p class="asset-label" data-role="label">Frog</p>
@@ -1421,22 +1424,20 @@
       <div class="asset-viewer" data-carousel="hearth-assets">
         <div class="asset-stage">
           <div class="asset-slide active" data-label="Frog">
-            <model-viewer src="frog1.glb" alt="Hearth frog character" auto-rotate camera-controls
-              shadow-intensity="0.65" shadow-softness="1" exposure="1.15" environment-image="legacy"
-              loading="eager"></model-viewer>
+            <model-viewer src="frog1.glb" alt="Hearth frog character" auto-rotate camera-controls shadow-intensity="0.5"
+              shadow-softness="1" loading="eager"></model-viewer>
           </div>
           <div class="asset-slide" data-label="Apple">
-            <model-viewer src="apple.glb" alt="Hearth apple asset" auto-rotate camera-controls shadow-intensity="0.65"
-              shadow-softness="1" exposure="1.15" environment-image="legacy" loading="eager"></model-viewer>
+            <model-viewer src="apple.glb" alt="Hearth apple asset" auto-rotate camera-controls shadow-intensity="0.5"
+              shadow-softness="1" loading="eager"></model-viewer>
           </div>
           <div class="asset-slide" data-label="Tomato">
-            <model-viewer src="tomato.glb" alt="Hearth tomato asset" auto-rotate camera-controls shadow-intensity="0.65"
-              shadow-softness="1" exposure="1.15" environment-image="legacy" loading="eager"></model-viewer>
+            <model-viewer src="tomato.glb" alt="Hearth tomato asset" auto-rotate camera-controls shadow-intensity="0.5"
+              shadow-softness="1" loading="eager"></model-viewer>
           </div>
           <div class="asset-slide" data-label="Snail">
             <model-viewer src="snail.glb" alt="Hearth snail character" auto-rotate camera-controls
-              shadow-intensity="0.65" shadow-softness="1" exposure="1.15" environment-image="legacy"
-              loading="eager"></model-viewer>
+              shadow-intensity="0.5" shadow-softness="1" loading="eager"></model-viewer>
           </div>
         </div>
         <p class="asset-label" data-role="label">Frog</p>
@@ -1630,8 +1631,6 @@
     }
 
     document.querySelectorAll("[data-carousel]").forEach(initCarousel);
-
-    // Extend the cursor-bubble hover effect to the new carousel controls
     document
       .querySelectorAll(".photobook-arrow, .photobook-dot")
       .forEach((el) => {
