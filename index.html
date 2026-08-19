@@ -596,80 +596,6 @@
       box-shadow: 0 12px 35px rgba(100, 80, 60, 0.15);
     }
 
-    .photobook {
-      margin-top: 1.5rem;
-      background: rgba(255, 255, 255, 0.5);
-      border: 1px solid var(--glass-border);
-      border-radius: 24px;
-      padding: 1.4rem;
-      position: relative;
-      max-width: 420px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .photobook-tape {
-      position: absolute;
-      top: -11px;
-      left: 32px;
-      width: 64px;
-      height: 24px;
-      background: rgba(255, 214, 176, 0.6);
-      border: 1px solid rgba(255, 255, 255, 0.7);
-      border-radius: 2px;
-      transform: rotate(-4deg);
-      box-shadow: 0 3px 8px rgba(100, 80, 60, 0.1);
-      z-index: 2;
-    }
-
-    .photobook-stage {
-      position: relative;
-      width: 100%;
-      aspect-ratio: 4 / 3;
-      max-height: 260px;
-      border-radius: 16px;
-      overflow: hidden;
-      background: #e8e0d8;
-    }
-
-    .photobook-slide {
-      position: absolute;
-      inset: 0;
-      opacity: 0;
-      transform: scale(0.97);
-      transition:
-        opacity 0.5s ease,
-        transform 0.5s ease;
-      pointer-events: none;
-    }
-
-    .photobook-slide.active {
-      opacity: 1;
-      transform: scale(1);
-      pointer-events: auto;
-    }
-
-    .photobook-slide img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center 20%;
-    }
-
-    .photobook-controls {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-top: 1rem;
-    }
-
-    .photobook-meta {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 8px;
-    }
-
     .photobook-arrow {
       width: 38px;
       height: 38px;
@@ -695,14 +621,6 @@
       background: rgba(122, 156, 224, 0.08);
     }
 
-    .photobook-caption {
-      font-size: 0.75rem;
-      font-weight: 700;
-      letter-spacing: 1.2px;
-      text-transform: uppercase;
-      opacity: 0.5;
-    }
-
     .photobook-dots {
       display: flex;
       gap: 6px;
@@ -724,6 +642,243 @@
     .photobook-dot.active {
       background: var(--accent);
       transform: scale(1.4);
+    }
+
+    /* Taped polaroid wall (replaces the old photobook carousel for PANW photos) */
+    .polaroid-wall {
+      margin-top: 1.5rem;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.6rem 1.2rem;
+      padding: 1rem 0.5rem 0.5rem;
+    }
+
+    .polaroid {
+      position: relative;
+      background: #fdfcfa;
+      padding: 10px 10px 32px;
+      border-radius: 3px;
+      box-shadow: 0 10px 24px rgba(60, 45, 30, 0.16);
+      cursor: pointer;
+      transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+    }
+
+    .polaroid:nth-child(4n+1) {
+      transform: rotate(-4deg);
+    }
+
+    .polaroid:nth-child(4n+2) {
+      transform: rotate(3deg);
+    }
+
+    .polaroid:nth-child(4n+3) {
+      transform: rotate(-2deg);
+    }
+
+    .polaroid:nth-child(4n+4) {
+      transform: rotate(4deg);
+    }
+
+    .polaroid:hover {
+      transform: rotate(0deg) translateY(-6px) scale(1.04);
+      box-shadow: 0 20px 40px rgba(60, 45, 30, 0.26);
+      z-index: 3;
+    }
+
+    .polaroid-photo {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      overflow: hidden;
+      background: #ece4da;
+    }
+
+    .polaroid-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .polaroid-tape {
+      position: absolute;
+      top: -10px;
+      left: 50%;
+      transform: translateX(-50%) rotate(-3deg);
+      width: 58px;
+      height: 22px;
+      background: rgba(255, 214, 176, 0.65);
+      border: 1px solid rgba(255, 255, 255, 0.7);
+      box-shadow: 0 3px 6px rgba(100, 80, 60, 0.12);
+    }
+
+    .polaroid:nth-child(even) .polaroid-tape {
+      transform: translateX(-50%) rotate(3deg);
+    }
+
+    @media (max-width: 880px) {
+      .polaroid-wall {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media (max-width: 560px) {
+      .polaroid-wall {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.4rem 1rem;
+      }
+    }
+
+    .polaroid {
+      cursor: pointer;
+    }
+
+    /* Filmstrip lightbox modal */
+    .film-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 10001;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      background: rgba(20, 15, 12, 0.88);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      padding: 3vh 4vw;
+      cursor: default;
+    }
+
+    .film-modal.open {
+      display: flex;
+    }
+
+    .film-strip {
+      position: relative;
+      width: min(920px, 92vw);
+      max-height: 90vh;
+      display: flex;
+      flex-direction: column;
+      background: #161210;
+      border-radius: 10px;
+      padding: 0 22px;
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
+    }
+
+    .film-sprockets {
+      display: flex;
+      justify-content: space-between;
+      padding: 8px 4px;
+    }
+
+    .film-sprockets span {
+      width: 12px;
+      height: 8px;
+      background: #fdfaf6;
+      border-radius: 2px;
+      opacity: 0.85;
+    }
+
+    .film-frame {
+      position: relative;
+      width: 100%;
+      flex: 1;
+      min-height: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #0d0b09;
+      overflow: hidden;
+    }
+
+    .film-frame img {
+      max-width: 100%;
+      max-height: 78vh;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      display: block;
+    }
+
+    .film-close {
+      position: absolute;
+      top: -18px;
+      right: -18px;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--white);
+      border: none;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--soft-clay);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+      cursor: pointer;
+    }
+
+    .film-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      border: none;
+      background: rgba(255, 255, 255, 0.15);
+      color: var(--white);
+      font-size: 1.4rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .film-arrow:hover {
+      background: rgba(255, 255, 255, 0.28);
+    }
+
+    .film-arrow.prev {
+      left: 10px;
+    }
+
+    .film-arrow.next {
+      right: 10px;
+    }
+
+    .film-caption {
+      text-align: center;
+      color: rgba(253, 250, 246, 0.75);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 10px 4px 4px;
+    }
+
+    @media (max-width: 560px) {
+      .film-strip {
+        padding: 0 12px;
+      }
+
+      .film-frame img {
+        max-height: 62vh;
+      }
+
+      .film-arrow {
+        width: 38px;
+        height: 38px;
+        font-size: 1.1rem;
+      }
+
+      .film-close {
+        top: -14px;
+        right: -8px;
+      }
     }
 
     .asset-viewer {
@@ -1120,14 +1275,6 @@
         height: 160px;
       }
 
-      .photobook {
-        max-width: 100%;
-      }
-
-      .photobook-stage {
-        max-height: 220px;
-      }
-
       .asset-stage {
         height: 240px;
       }
@@ -1173,6 +1320,7 @@
     <div class="nav-logo">ae.</div>
     <div class="nav-links">
       <a href="#academic">Education</a>
+      <a href="#internship">Internship</a>
       <a href="#projects">Projects</a>
       <a href="#contact">Contact</a>
       <div id="music-toggle">
@@ -1258,72 +1406,6 @@
     </div>
 
     <div class="academic-card reveal reveal-delay-1">
-      <h3>Systems Engineer Intern</h3>
-      <p class="card-meta">
-        Palo Alto Networks · Plano, TX · May 2026 – August 2026
-      </p>
-      <ul class="bullet-list" style="margin-bottom: 1.5rem">
-        <li>
-          Configured and hardened a Palo Alto PA-415 firewall running
-          PAN-OS — routing outbound internet access and verifying stateful
-          traffic filtering across Layer 3 interfaces via custom NAT
-          rules, routing tables, and inter-zone security policies.
-        </li>
-        <li>
-          Enforced strict network isolation to prevent lateral movement
-          toward internal zones and applied a 60-minute DHCP lease
-          allocation limit to minimize dynamic host exposure.
-        </li>
-        <li>
-          Developed a full-stack project management web app (MERN,
-          Firebase Auth, Socket.IO, custom 3D assets, integrated AI
-          assistant) alongside the internship.
-        </li>
-        <li>
-          Co-presented a live Cortex XSIAM product demonstration to a PANW
-          VP with a fellow intern.
-        </li>
-      </ul>
-      <div class="photobook" data-carousel="panw">
-        <div class="photobook-tape"></div>
-        <div class="photobook-stage">
-          <div class="photobook-slide active">
-            <img src="panw1.jpg" alt="Palo Alto Networks internship photo 1" />
-          </div>
-          <div class="photobook-slide">
-            <img src="panw2.jpg" alt="Palo Alto Networks internship photo 2" />
-          </div>
-          <div class="photobook-slide">
-            <img src="panw3.jpg" alt="Palo Alto Networks internship photo 3" />
-          </div>
-          <div class="photobook-slide">
-            <img src="panw4.jpg" alt="Palo Alto Networks internship photo 4" />
-          </div>
-          <div class="photobook-slide">
-            <img src="panw5.jpg" alt="Palo Alto Networks internship photo 5" />
-          </div>
-          <div class="photobook-slide">
-            <img src="panw6.jpg" alt="Palo Alto Networks internship photo 6" />
-          </div>
-          <div class="photobook-slide">
-            <img src="panw7.jpg" alt="Palo Alto Networks internship photo 7" />
-          </div>
-          <div class="photobook-slide">
-            <img src="panw8.jpeg" alt="Palo Alto Networks internship photo 8" />
-          </div>
-        </div>
-        <div class="photobook-controls">
-          <button class="photobook-arrow" data-action="prev" aria-label="Previous photo">‹</button>
-          <div class="photobook-meta">
-            <span class="photobook-caption" data-role="counter">01 / 08</span>
-            <div class="photobook-dots" data-role="dots"></div>
-          </div>
-          <button class="photobook-arrow" data-action="next" aria-label="Next photo">›</button>
-        </div>
-      </div>
-    </div>
-
-    <div class="academic-card reveal reveal-delay-2">
       <div class="capstone-grid">
         <div>
           <h3>Koda: Senior Capstone Project</h3>
@@ -1383,7 +1465,7 @@
       </div>
     </div>
 
-    <div class="academic-card reveal reveal-delay-3">
+    <div class="academic-card reveal reveal-delay-2">
       <h3>CAAM-ITEAM Summer Outreach Program</h3>
       <p class="card-meta">
         Center for Agile and Adaptive Additive Manufacturing · UNT · June 2025
@@ -1411,6 +1493,110 @@
         <img src="caam2.jpeg" class="academic-photo" alt="Collaboration" />
         <img src="caam3.jpeg" class="academic-photo" alt="Certification" />
       </div>
+    </div>
+  </section>
+
+  <section id="internship" class="section">
+    <div class="section-header">
+      <h2 class="section-title reveal">Internship Experience</h2>
+      <div class="section-line"></div>
+    </div>
+
+    <div class="academic-card reveal">
+      <h3>Systems Engineer Intern</h3>
+      <p class="card-meta">
+        Palo Alto Networks · Plano, TX · May 2026 – August 2026
+      </p>
+      <ul class="bullet-list" style="margin-bottom: 1.5rem">
+        <li>
+          Configured and hardened a Palo Alto PA-415 firewall running
+          PAN-OS — routing outbound internet access and verifying stateful
+          traffic filtering across Layer 3 interfaces via custom NAT
+          rules, routing tables, and inter-zone security policies.
+        </li>
+        <li>
+          Enforced strict network isolation to prevent lateral movement
+          toward internal zones and applied a 60-minute DHCP lease
+          allocation limit to minimize dynamic host exposure.
+        </li>
+        <li>
+          Developed a full-stack project management web app (MERN,
+          Firebase Auth, Socket.IO, custom 3D assets, integrated AI
+          assistant) alongside the internship.
+        </li>
+        <li>
+          Co-presented a live Cortex XSIAM product demonstration to a PANW
+          VP with a fellow intern.
+        </li>
+      </ul>
+      <div class="polaroid-wall" data-lightbox="panw">
+        <div class="polaroid">
+          <div class="polaroid-tape"></div>
+          <div class="polaroid-photo">
+            <img src="panw1.jpg" alt="Palo Alto Networks internship photo 1" />
+          </div>
+        </div>
+        <div class="polaroid">
+          <div class="polaroid-tape"></div>
+          <div class="polaroid-photo">
+            <img src="panw2.jpg" alt="Palo Alto Networks internship photo 2" />
+          </div>
+        </div>
+        <div class="polaroid">
+          <div class="polaroid-tape"></div>
+          <div class="polaroid-photo">
+            <img src="panw3.jpg" alt="Palo Alto Networks internship photo 3" />
+          </div>
+        </div>
+        <div class="polaroid">
+          <div class="polaroid-tape"></div>
+          <div class="polaroid-photo">
+            <img src="panw4.jpg" alt="Palo Alto Networks internship photo 4" />
+          </div>
+        </div>
+        <div class="polaroid">
+          <div class="polaroid-tape"></div>
+          <div class="polaroid-photo">
+            <img src="panw5.jpg" alt="Palo Alto Networks internship photo 5" />
+          </div>
+        </div>
+        <div class="polaroid">
+          <div class="polaroid-tape"></div>
+          <div class="polaroid-photo">
+            <img src="panw6.jpg" alt="Palo Alto Networks internship photo 6" />
+          </div>
+        </div>
+        <div class="polaroid">
+          <div class="polaroid-tape"></div>
+          <div class="polaroid-photo">
+            <img src="panw7.jpg" alt="Palo Alto Networks internship photo 7" />
+          </div>
+        </div>
+        <div class="polaroid">
+          <div class="polaroid-tape"></div>
+          <div class="polaroid-photo">
+            <img src="panw8.jpeg" alt="Palo Alto Networks internship photo 8" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="academic-card reveal reveal-delay-1">
+      <h3>Firewall Configuration — PA-415</h3>
+      <div class="tech-pills" style="margin-top: 0.6rem">
+        <span class="tech-pill">PAN-OS</span>
+        <span class="tech-pill">Zero Trust</span>
+        <span class="tech-pill">NAT / Routing</span>
+      </div>
+      <p class="project-desc" style="margin-top: 1rem; margin-bottom: 0">
+        Configured and hardened a Palo Alto PA-415 firewall — routing
+        outbound internet access and verifying stateful traffic filtering
+        across Layer 3 interfaces without active cloud registration, via
+        custom NAT rules, routing tables, and inter-zone security
+        policies. Enforced strict network isolation to prevent lateral
+        movement toward internal zones and applied a 60-minute DHCP lease
+        allocation limit to minimize dynamic host exposure.
+      </p>
     </div>
   </section>
 
@@ -1466,24 +1652,6 @@
         <a href="https://hearth-umber-six.vercel.app/" class="btn-link" target="_blank" rel="noopener">Join ↗</a>
       </div>
     </div>
-
-    <div class="academic-card reveal reveal-delay-1">
-      <h3>Firewall Configuration — PA-415</h3>
-      <div class="tech-pills" style="margin-top: 0.6rem">
-        <span class="tech-pill">PAN-OS</span>
-        <span class="tech-pill">Zero Trust</span>
-        <span class="tech-pill">NAT / Routing</span>
-      </div>
-      <p class="project-desc" style="margin-top: 1rem; margin-bottom: 0">
-        Configured and hardened a Palo Alto PA-415 firewall — routing
-        outbound internet access and verifying stateful traffic filtering
-        across Layer 3 interfaces without active cloud registration, via
-        custom NAT rules, routing tables, and inter-zone security
-        policies. Enforced strict network isolation to prevent lateral
-        movement toward internal zones and applied a 60-minute DHCP lease
-        allocation limit to minimize dynamic host exposure.
-      </p>
-    </div>
   </section>
 
   <section id="contact" class="section">
@@ -1509,6 +1677,28 @@
   <footer>
     <p>made with ♡ &copy; 2026 Abigail Endris</p>
   </footer>
+
+  <div class="film-modal" id="filmModal">
+    <div class="film-strip">
+      <button class="film-close" id="filmClose" aria-label="Close">✕</button>
+      <div class="film-sprockets">
+        <span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span>
+      </div>
+      <div class="film-frame">
+        <button class="film-arrow prev" id="filmPrev" aria-label="Previous photo">‹</button>
+        <img id="filmImage" src="" alt="" />
+        <button class="film-arrow next" id="filmNext" aria-label="Next photo">›</button>
+      </div>
+      <div class="film-sprockets">
+        <span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span>
+      </div>
+      <p class="film-caption" id="filmCaption"></p>
+    </div>
+  </div>
 
   <script>
     const mainBubble = document.getElementById("mainBubble");
@@ -1631,8 +1821,74 @@
     }
 
     document.querySelectorAll("[data-carousel]").forEach(initCarousel);
+
+    // Filmstrip lightbox for photo carousels (skips 3D asset viewers)
+    function initFilmLightbox() {
+      const modal = document.getElementById("filmModal");
+      const modalImg = document.getElementById("filmImage");
+      const caption = document.getElementById("filmCaption");
+      const closeBtn = document.getElementById("filmClose");
+      const prevBtn = document.getElementById("filmPrev");
+      const nextBtn = document.getElementById("filmNext");
+      const pad = (n) => String(n).padStart(2, "0");
+
+      let activeImages = [];
+      let activeIndex = 0;
+
+      function openAt(images, i) {
+        activeImages = images;
+        activeIndex = i;
+        render();
+        modal.classList.add("open");
+      }
+
+      function render() {
+        const img = activeImages[activeIndex];
+        modalImg.src = img.src;
+        modalImg.alt = img.alt;
+        caption.textContent = `${pad(activeIndex + 1)} / ${pad(activeImages.length)}`;
+      }
+
+      function close() {
+        modal.classList.remove("open");
+        modalImg.src = "";
+      }
+
+      function step(delta) {
+        activeIndex = (activeIndex + delta + activeImages.length) % activeImages.length;
+        render();
+      }
+
+      closeBtn.addEventListener("click", close);
+      prevBtn.addEventListener("click", () => step(-1));
+      nextBtn.addEventListener("click", () => step(1));
+      modal.addEventListener("click", (e) => {
+        if (e.target === modal) close();
+      });
+      document.addEventListener("keydown", (e) => {
+        if (!modal.classList.contains("open")) return;
+        if (e.key === "Escape") close();
+        if (e.key === "ArrowLeft") step(-1);
+        if (e.key === "ArrowRight") step(1);
+      });
+
+      document.querySelectorAll('[data-lightbox="panw"] .polaroid').forEach((polaroid) => {
+        const img = polaroid.querySelector("img");
+        if (!img) return;
+        polaroid.addEventListener("click", () => {
+          const allImages = Array.from(
+            document.querySelectorAll('[data-lightbox="panw"] img'),
+          );
+          openAt(allImages, allImages.indexOf(img));
+        });
+      });
+    }
+
+    initFilmLightbox();
+
+    // Extend the cursor-bubble hover effect to the new carousel controls
     document
-      .querySelectorAll(".photobook-arrow, .photobook-dot")
+      .querySelectorAll(".photobook-arrow, .photobook-dot, .polaroid")
       .forEach((el) => {
         el.addEventListener("mouseenter", () => {
           mainBubble.style.width = "42px";
