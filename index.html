@@ -8,7 +8,7 @@
   <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link
-    href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Outfit:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,900;1,900&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Outfit:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,900;1,900&family=Caveat:wght@600;700&display=swap"
     rel="stylesheet" />
   <style>
     :root {
@@ -248,6 +248,7 @@
       box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
       transform: translateY(-1px);
     }
+
     #music-toggle.jiggle {
       animation: musicToggleJiggle 2.2s ease-in-out infinite;
     }
@@ -687,73 +688,74 @@
       background: var(--accent);
       transform: scale(1.4);
     }
-.dev-note {
-  position: absolute;
-  top: -14px;
-  right: 28px;
-  z-index: 5;
-  background: #fdfcfa;
-  color: var(--soft-clay);
-  font-family: "Fredoka", sans-serif;
-  font-weight: 600;
-  font-size: 0.82rem;
-  letter-spacing: 0.2px;
-  padding: 0.6rem 1rem 0.7rem;
-  border-radius: 2px;
-  transform: rotate(-3deg);
-  box-shadow: 0 10px 24px rgba(60, 45, 30, 0.16);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
 
-.dev-note:hover {
-  transform: rotate(0deg) translateY(-3px);
-  box-shadow: 0 16px 34px rgba(60, 45, 30, 0.22);
-}
+    .dev-note {
+      position: absolute;
+      top: -14px;
+      right: 28px;
+      z-index: 5;
+      background: #fdfcfa;
+      color: var(--soft-clay);
+      font-family: "Fredoka", sans-serif;
+      font-weight: 600;
+      font-size: 0.82rem;
+      letter-spacing: 0.2px;
+      padding: 0.6rem 1rem 0.7rem;
+      border-radius: 2px;
+      transform: rotate(-3deg);
+      box-shadow: 0 10px 24px rgba(60, 45, 30, 0.16);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
 
-.dev-note::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: inherit;
-  clip-path: polygon(
-    0% 3%, 4% 0%, 10% 2%, 18% 0%, 26% 2%, 34% 0%, 43% 2%,
-    52% 0%, 61% 2%, 70% 0%, 79% 2%, 88% 0%, 96% 2%, 100% 0%,
-    100% 97%, 95% 100%, 87% 98%, 78% 100%, 69% 98%, 60% 100%,
-    51% 98%, 42% 100%, 33% 98%, 24% 100%, 15% 98%, 6% 100%, 0% 97%
-  );
-  z-index: -1;
-}
+    .dev-note:hover {
+      transform: rotate(0deg) translateY(-3px);
+      box-shadow: 0 16px 34px rgba(60, 45, 30, 0.22);
+    }
 
-.dev-note .note-tape {
-  position: absolute;
-  top: -10px;
-  left: 50%;
-  transform: translateX(-50%) rotate(-3deg);
-  width: 52px;
-  height: 20px;
-  background: rgba(255, 214, 176, 0.65);
-  border: 1px solid rgba(255, 255, 255, 0.7);
-  box-shadow: 0 3px 6px rgba(100, 80, 60, 0.12);
-}
+    .dev-note::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: inherit;
+      clip-path: polygon(0% 3%, 4% 0%, 10% 2%, 18% 0%, 26% 2%, 34% 0%, 43% 2%,
+          52% 0%, 61% 2%, 70% 0%, 79% 2%, 88% 0%, 96% 2%, 100% 0%,
+          100% 97%, 95% 100%, 87% 98%, 78% 100%, 69% 98%, 60% 100%,
+          51% 98%, 42% 100%, 33% 98%, 24% 100%, 15% 98%, 6% 100%, 0% 97%);
+      z-index: -1;
+    }
 
-.dev-note a {
-  color: var(--accent);
-  text-decoration: none;
-  border-bottom: 1px dashed var(--accent);
-}
+    .dev-note .note-tape {
+      position: absolute;
+      top: -10px;
+      left: 50%;
+      transform: translateX(-50%) rotate(-3deg);
+      width: 52px;
+      height: 20px;
+      background: rgba(255, 214, 176, 0.65);
+      border: 1px solid rgba(255, 255, 255, 0.7);
+      box-shadow: 0 3px 6px rgba(100, 80, 60, 0.12);
+    }
 
-.dev-note a:hover {
-  border-bottom-style: solid;
-}
+    .dev-note a {
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px dashed var(--accent);
+    }
 
-@media (max-width: 560px) {
-  .dev-note {
-    position: static;
-    display: inline-block;
-    transform: rotate(-2deg);
-    margin-bottom: 1.2rem;
-  }
-}    .polaroid-wall {
+    .dev-note a:hover {
+      border-bottom-style: solid;
+    }
+
+    @media (max-width: 560px) {
+      .dev-note {
+        position: static;
+        display: inline-block;
+        transform: rotate(-2deg);
+        margin-bottom: 1.2rem;
+      }
+    }
+
+    .polaroid-wall {
       margin-top: 1.5rem;
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -809,6 +811,23 @@
       object-fit: cover;
     }
 
+    .polaroid-caption {
+      position: absolute;
+      bottom: 4px;
+      left: 4px;
+      right: 4px;
+      text-align: center;
+      font-family: "Caveat", cursive;
+      font-weight: 600;
+      font-size: 1.2rem;
+      line-height: 1.15;
+      color: #3d3028;
+      pointer-events: none;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
     .polaroid-tape {
       position: absolute;
       top: -10px;
@@ -841,6 +860,7 @@
     .polaroid {
       cursor: pointer;
     }
+
     .film-modal {
       position: fixed;
       inset: 0;
@@ -1444,8 +1464,8 @@
       </div>
       <h1 class="hero-title">Hi! I'm Abigail <span class="wave">👋</span></h1>
       <p class="hero-sub">
-        Full-stack developer & networks enthusiast bridging the gap between robust 
-        network security and creative software engineering (with a special love for 
+        Full-stack developer & networks enthusiast bridging the gap between robust
+        network security and creative software engineering (with a special love for
         game development and building things that matter) ! ⋆˙⟡
       </p>
       <div class="hero-cta">
@@ -1518,34 +1538,35 @@
       </div>
     </div>
 
-<div class="academic-card reveal reveal-delay-1" style="position: relative; overflow: visible;">
-  <span class="dev-note">
-    <span class="note-tape"></span>
-    In-development: check out our <a href="https://github.com/Team8-Bedrock/koda-babytracker" target="_blank" rel="noopener">GitHub</a>!
-  </span>
-  <div class="capstone-grid">
-    <div>
-  <h3>Koda: Capstone UNT Sponsored Project</h3>
-<p class="card-meta">
-  Lead UI/UX Designer · Team Developer · Dec 2026
-  </p>
-<ul class="bullet-list">
-  <li>
-    Engineered Login and Registration flows with JWT-based
-    authentication, form validation, and secure session logic.
-  </li>
-  <li>
-    Led wireframe sessions and authored user-interaction
-    documentation defining data flows across a complex
-    multi-user environment (parent, child, and caregiver roles).
-  </li>
-  <li>
-    Designed and built the app's 3D assets and the entire
-    frontend/user-interaction layer.
-  </li>
-</ul>
-    </div>
-    <div class="asset-viewer" data-carousel="koda-assets">
+    <div class="academic-card reveal reveal-delay-1" style="position: relative; overflow: visible;">
+      <span class="dev-note">
+        <span class="note-tape"></span>
+        In-development: check out our <a href="https://github.com/Team8-Bedrock/koda-babytracker" target="_blank"
+          rel="noopener">GitHub</a>!
+      </span>
+      <div class="capstone-grid">
+        <div>
+          <h3>Koda: Capstone UNT Sponsored Project</h3>
+          <p class="card-meta">
+            Lead UI/UX Designer · Team Developer · Dec 2026
+          </p>
+          <ul class="bullet-list">
+            <li>
+              Engineered Login and Registration flows with JWT-based
+              authentication, form validation, and secure session logic.
+            </li>
+            <li>
+              Led wireframe sessions and authored user-interaction
+              documentation defining data flows across a complex
+              multi-user environment (parent, child, and caregiver roles).
+            </li>
+            <li>
+              Designed and built the app's 3D assets and the entire
+              frontend/user-interaction layer.
+            </li>
+          </ul>
+        </div>
+        <div class="asset-viewer" data-carousel="koda-assets">
           <div class="asset-stage">
             <div class="asset-slide active" data-label="Frog">
               <model-viewer src="frog.glb" alt="Koda frog character" auto-rotate camera-controls shadow-intensity="0.5"
@@ -1652,54 +1673,69 @@
           <div class="polaroid-photo">
             <img src="panw1.jpg" alt="Palo Alto Networks internship photo 1" />
           </div>
+          <p class="polaroid-caption">Picture day!! 📸</p>
         </div>
         <div class="polaroid">
           <div class="polaroid-tape"></div>
           <div class="polaroid-photo">
             <img src="panw2.jpg" alt="Palo Alto Networks internship photo 2" />
           </div>
+          <p class="polaroid-caption">Picture day, round two!! :)</p>
         </div>
         <div class="polaroid">
           <div class="polaroid-tape"></div>
           <div class="polaroid-photo">
             <img src="panw3.jpg" alt="Palo Alto Networks internship photo 3" />
           </div>
+          <p class="polaroid-caption">Intern Awards — me & my manager!</p>
         </div>
         <div class="polaroid">
           <div class="polaroid-tape"></div>
           <div class="polaroid-photo">
             <img src="panw4.jpg" alt="Palo Alto Networks internship photo 4" />
           </div>
+          <p class="polaroid-caption">Intern Spotlight — company-wide!</p>
         </div>
         <div class="polaroid">
           <div class="polaroid-tape"></div>
           <div class="polaroid-photo">
             <img src="panw5.jpg" alt="Palo Alto Networks internship photo 5" />
           </div>
+          <p class="polaroid-caption">The gang!</p>
         </div>
         <div class="polaroid">
           <div class="polaroid-tape"></div>
           <div class="polaroid-photo">
             <img src="panw6.jpg" alt="Palo Alto Networks internship photo 6" />
           </div>
+          <p class="polaroid-caption">Group dinner!</p>
         </div>
         <div class="polaroid">
           <div class="polaroid-tape"></div>
           <div class="polaroid-photo">
             <img src="panw7.jpg" alt="Palo Alto Networks internship photo 7" />
           </div>
+          <p class="polaroid-caption">Cool under pressure!/p>
         </div>
         <div class="polaroid">
           <div class="polaroid-tape"></div>
           <div class="polaroid-photo">
             <img src="panw8.jpeg" alt="Palo Alto Networks internship photo 8" />
           </div>
+          <p class="polaroid-caption">First day!</p>
+        </div>
+        <div class="polaroid">
+          <div class="polaroid-tape"></div>
+          <div class="polaroid-photo">
+            <img src="panw9.jpeg" alt="Palo Alto Networks internship photo 9" />
+          </div>
+          <p class="polaroid-caption"> WWE night with the gang!</p>
         </div>
       </div>
     </div>
 
     <div class="academic-card reveal reveal-delay-1">
-      <h3>Firewall Configuration — PA-415</h3>
+      <h3>Firewall Configuration: PA-415</h3>
       <div class="tech-pills" style="margin-top: 0.6rem">
         <span class="tech-pill">PAN-OS</span>
         <span class="tech-pill">Zero Trust</span>
@@ -1894,8 +1930,6 @@
     document
       .querySelectorAll(".reveal")
       .forEach((el) => observer.observe(el));
-
-    // Photobook / asset-viewer carousels (PANW photos, Koda + Hearth assets)
     function initCarousel(root) {
       const slides = Array.from(
         root.querySelectorAll(".photobook-slide, .asset-slide"),
