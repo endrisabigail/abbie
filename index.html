@@ -249,6 +249,52 @@
       transform: translateY(-1px);
     }
 
+    /* Attention jiggle while music is off, prompting the user to click it */
+    #music-toggle.jiggle {
+      animation: musicToggleJiggle 2.2s ease-in-out infinite;
+    }
+
+    #music-toggle.jiggle:hover {
+      animation-play-state: paused;
+    }
+
+    @keyframes musicToggleJiggle {
+
+      0%,
+      60%,
+      100% {
+        transform: translateY(0) rotate(0deg) scale(1);
+      }
+
+      64% {
+        transform: translateY(-4px) rotate(-10deg) scale(1.06);
+      }
+
+      68% {
+        transform: translateY(1px) rotate(9deg) scale(1.06);
+      }
+
+      72% {
+        transform: translateY(-4px) rotate(-8deg) scale(1.05);
+      }
+
+      76% {
+        transform: translateY(1px) rotate(7deg) scale(1.04);
+      }
+
+      80% {
+        transform: translateY(-2px) rotate(-5deg) scale(1.02);
+      }
+
+      84% {
+        transform: translateY(1px) rotate(3deg) scale(1.01);
+      }
+
+      88% {
+        transform: translateY(0) rotate(-1deg) scale(1);
+      }
+    }
+
     #music-toggle .note {
       font-size: 1rem;
       animation: noteWiggle 2s ease-in-out infinite;
@@ -1323,7 +1369,7 @@
       <a href="#internship">Internship</a>
       <a href="#projects">Projects</a>
       <a href="#contact">Contact</a>
-      <div id="music-toggle">
+      <div id="music-toggle" class="jiggle">
         <span class="note">♫</span>
         <span id="music-text">Music Off</span>
       </div>
@@ -1338,8 +1384,9 @@
       </div>
       <h1 class="hero-title">Hi! I'm Abigail <span class="wave">👋</span></h1>
       <p class="hero-sub">
-        Full-stack developer who loves building things, with hands-on firewall 
-        configuration experience and a strong curiosity for IT and networking.
+        Full-stack developer & networks ethusiast bridging the gap between robust 
+        network security and creative software engineering (with a special love for 
+        game development and building things that matter) ! ⋆˙⟡
       </p>
       <div class="hero-cta">
         <a href="#projects" class="btn-primary">See my work ↓</a>
@@ -1757,6 +1804,7 @@
     musicBtn.addEventListener("click", () => {
       musicOn = !musicOn;
       musicText.innerText = musicOn ? "Music On" : "Music Off";
+      musicBtn.classList.toggle("jiggle", !musicOn);
       if (musicOn) {
         audio.play();
       } else {
@@ -1770,7 +1818,7 @@
         entries.forEach((e) => {
           if (e.isIntersecting) e.target.classList.add("visible");
         }),
-      { threshold: 0.08 },
+      {threshold: 0.08},
     );
     document
       .querySelectorAll(".reveal")
@@ -1884,8 +1932,6 @@
     }
 
     initFilmLightbox();
-
-    // Extend the cursor-bubble hover effect to the new carousel controls
     document
       .querySelectorAll(".photobook-arrow, .photobook-dot, .polaroid")
       .forEach((el) => {
