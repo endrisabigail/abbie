@@ -1432,6 +1432,102 @@
         grid-column: auto;
       }
     }
+
+    .section-title {
+      background: linear-gradient(120deg,
+          var(--soft-clay) 25%,
+          var(--accent) 65%,
+          var(--accent-warm) 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-title .grad {
+      display: inline;
+      background: linear-gradient(115deg,
+          var(--soft-clay) 35%,
+          var(--accent) 68%,
+          var(--accent-warm) 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-size: 200% 200%;
+      animation: heroShimmer 9s ease-in-out infinite;
+    }
+
+
+
+    @keyframes heroShimmer {
+
+      0%,
+      100% {
+        background-position: 0% 50%;
+      }
+
+      50% {
+        background-position: 100% 50%;
+      }
+    }
+
+    .academic-card,
+    .project-card {
+      transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease;
+    }
+
+    .academic-card:hover {
+      transform: translateY(-6px) rotate(-0.4deg);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .btn-primary {
+      background: linear-gradient(120deg, var(--soft-clay), #6b5343);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .btn-primary::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -80%;
+      width: 50%;
+      height: 100%;
+      background: linear-gradient(100deg,
+          transparent,
+          rgba(255, 255, 255, 0.35),
+          transparent);
+      transform: skewX(-20deg);
+      transition: left 0.6s ease;
+    }
+
+    .btn-primary:hover::after {
+      left: 130%;
+    }
+
+    .nav-logo {
+      background-size: 200% 200%;
+      animation: heroShimmer 7s ease-in-out infinite;
+    }
+
+    .bullet-list li {
+      transition: transform 0.25s ease;
+    }
+
+    .bullet-list li:hover {
+      transform: translateX(4px);
+    }
+
+    .asset-viewer {
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+    }
+
+    .asset-viewer:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-hover);
+    }
   </style>
 </head>
 
@@ -1462,7 +1558,7 @@
         <div class="status-dot"></div>
         CS Grad (Dec 2026) · Open to New Grad Roles
       </div>
-      <h1 class="hero-title">Hi! I'm Abigail <span class="wave">👋</span></h1>
+      <h1 class="hero-title"><span class="grad">Hi! I'm Abigail</span> <span class="wave">👋</span></h1>
       <p class="hero-sub">
         Full-stack developer & networks enthusiast bridging the gap between robust
         network security and creative software engineering (with a special love for
@@ -1494,7 +1590,7 @@
             B.S. Computer Science · Expected Dec 2026
           </p>
           <p style="opacity: 0.7; font-size: 0.95rem; line-height: 1.7">
-            Denton, Texas — on track to graduate with relevant coursework in
+            Denton, Texas, on track to graduate with relevant coursework in
             Data Structures, Software Engineering, and System Programming.
           </p>
           <div class="cert-item" style="margin-top: 1rem">
@@ -1542,7 +1638,8 @@
       <span class="dev-note">
         <span class="note-tape"></span>
         In-development: check out our <a href="https://github.com/Team8-Bedrock/koda-babytracker" target="_blank"
-          rel="noopener">GitHub</a>!
+          rel="noopener">GitHub</a> or try the <a href="https://koda-app-8f5h.onrender.com/" target="_blank"
+          rel="noopener">live app</a>!
       </span>
       <div class="capstone-grid">
         <div>
@@ -1552,17 +1649,28 @@
           </p>
           <ul class="bullet-list">
             <li>
-              Engineered Login and Registration flows with JWT-based
-              authentication, form validation, and secure session logic.
+              Developed login and registration flows with JWT-based
+              authentication, form validation, and session handling.
             </li>
             <li>
-              Led wireframe sessions and authored user-interaction
-              documentation defining data flows across a complex
-              multi-user environment (parent, child, and caregiver roles).
+              Led UI/UX design, wireframing, and user-interaction documentation
+              for parent and caretaker workflows in the phone app, shaping its
+              entire frontend experience.
             </li>
             <li>
-              Designed and built the app's 3D assets and the entire
-              frontend/user-interaction layer.
+              Sculpted the six 3D animal characters and coded their animations
+              in React Three Fiber, with mood-driven logic that reacts to
+              activity logs, moods, and scheduled care routines.
+            </li>
+            <li>
+              Created an interactive baby passport combining profile details,
+              mood explanations, allergies, and parent-managed notes with
+              caretaker visibility controls.
+            </li>
+            <li>
+              Refined the phone app's activity logging and scheduling forms,
+              day/night settings, and whimsical feedback for saved entries,
+              scheduled activities, and passport closing interactions.
             </li>
           </ul>
         </div>
@@ -1648,7 +1756,7 @@
       <ul class="bullet-list" style="margin-bottom: 1.5rem">
         <li>
           Configured and hardened a Palo Alto PA-415 firewall running
-          PAN-OS — routing outbound internet access and verifying stateful
+          PAN-OS, routing outbound internet access and verifying stateful
           traffic filtering across Layer 3 interfaces via custom NAT
           rules, routing tables, and inter-zone security policies.
         </li>
@@ -1687,14 +1795,14 @@
           <div class="polaroid-photo">
             <img src="panw3.jpg" alt="Palo Alto Networks internship photo 3" />
           </div>
-          <p class="polaroid-caption">Intern Awards — me & my manager!</p>
+          <p class="polaroid-caption">Intern Awards: me & my manager!</p>
         </div>
         <div class="polaroid">
           <div class="polaroid-tape"></div>
           <div class="polaroid-photo">
             <img src="panw4.jpg" alt="Palo Alto Networks internship photo 4" />
           </div>
-          <p class="polaroid-caption">Intern Spotlight — company-wide!</p>
+          <p class="polaroid-caption">Intern Spotlight: company-wide!</p>
         </div>
         <div class="polaroid">
           <div class="polaroid-tape"></div>
@@ -1742,7 +1850,7 @@
         <span class="tech-pill">NAT / Routing</span>
       </div>
       <p class="project-desc" style="margin-top: 1rem; margin-bottom: 0">
-        Configured and hardened a Palo Alto PA-415 firewall — routing
+        Configured and hardened a Palo Alto PA-415 firewall, routing
         outbound internet access and verifying stateful traffic filtering
         across Layer 3 interfaces without active cloud registration, via
         custom NAT rules, routing tables, and inter-zone security
@@ -1925,7 +2033,7 @@
         entries.forEach((e) => {
           if (e.isIntersecting) e.target.classList.add("visible");
         }),
-      {threshold: 0.08},
+      { threshold: 0.08 },
     );
     document
       .querySelectorAll(".reveal")
