@@ -17,10 +17,6 @@ My personal portfolio, built around a 3D sculpt of me that waves hello. I'm a co
 - Nomad Sculpt and Blender for all 3D models (compressed with gltf-transform + meshopt)
 - GitHub Actions for deployment to GitHub Pages
 
-## How the 3D wave works
-
-The model has no rig. The arm is pivoted at the shoulder in code and the sleeve mesh bends at the elbow by weighting each vertex along the arm. More in the [write-up](https://endrisabigail.github.io/abbie/#/process/waving-hello).
-
 ## Contact
 
 [LinkedIn](https://linkedin.com/in/abigail-endris) · [GitHub](https://github.com/endrisabigail) · endrisabigail@gmail.com
