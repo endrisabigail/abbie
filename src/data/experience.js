@@ -18,7 +18,7 @@ export const internship = {
   where: "Plano, TX",
   when: "May 2026 – Aug 2026",
   bullets: [
-    "Configured and hardened a Palo Alto PA-415 firewall running PAN-OS, routing outbound internet access and verifying stateful traffic filtering across Layer 3 interfaces via custom NAT rules, routing tables, and inter-zone security policies.",
+    "Configured a Palo Alto PA-415 firewall running PAN-OS, routing outbound internet access and verifying stateful traffic filtering across Layer 3 interfaces via custom NAT rules and inter-zone security policies.",
     "Enforced strict network isolation to prevent lateral movement toward internal zones and applied a 60-minute DHCP lease allocation limit to minimize dynamic host exposure.",
     "Developed a full-stack project management web app (MERN, Firebase Auth, Socket.IO, custom 3D assets, integrated AI assistant) alongside the internship.",
     "Co-presented a live Cortex XSIAM product demonstration to a PANW VP with a fellow intern.",
