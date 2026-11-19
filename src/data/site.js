@@ -13,7 +13,7 @@ export const me = {
   resume: asset("Abigail_Endris_Resume.pdf"),
   song: asset("audio/song.mp3"),
   intro:
-    "Bridging the gap between robust network security and creative software engineering, from designing UI/UX to building 3D characters and worlds in Blender and Nomad (with a special love for game development and building things that matter)! ⋆˙⟡",
+    "Half network nerd, half creative coder. I am passionate about everything from network security and full-stack development to designing interfaces and sculpting 3D characters and worlds in Blender and Nomad, with a soft spot for game development ⋆˙⟡",
 };
 
 export const nav = [
