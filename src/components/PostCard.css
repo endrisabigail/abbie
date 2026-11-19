@@ -1,0 +1,80 @@
+.post-card {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  background: var(--bg-2);
+  border: 1.5px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: transform 0.3s var(--ease-pop), border-color 0.3s;
+}
+
+.post-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--lime);
+}
+
+.post-card-cover {
+  position: relative;
+  height: 170px;
+  display: grid;
+  place-items: center;
+  background: var(--pc);
+  font-size: 4rem;
+  overflow: hidden;
+}
+
+.post-card-cover::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(rgba(255, 255, 255, 0.35) 1.5px, transparent 2px) 0 0 / 16px 16px;
+}
+
+.post-card-cover img,
+.post-card-cover > span:first-child {
+  position: relative;
+  max-height: 150px;
+  width: auto;
+  transition: transform 0.35s var(--ease-pop);
+}
+
+.post-card:hover .post-card-cover img,
+.post-card:hover .post-card-cover > span:first-child {
+  transform: scale(1.1) rotate(-5deg);
+}
+
+.post-card-log {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  font-size: 0.62rem;
+  background: var(--ink);
+  color: var(--lime);
+  padding: 0.2rem 0.5rem;
+}
+
+.post-card-body {
+  padding: 1.1rem 1.3rem 1.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex: 1;
+}
+
+.post-card-meta {
+  font-size: 0.65rem;
+  color: var(--cyan);
+}
+
+.post-card h3 {
+  font-size: 1.35rem;
+  line-height: 1.12;
+}
+
+.post-card-summary {
+  color: var(--muted);
+  font-size: 0.93rem;
+  flex: 1;
+}

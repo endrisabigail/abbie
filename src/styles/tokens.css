@@ -1,0 +1,27 @@
+:root {
+  --bg: #0d1f1e;
+  --bg-2: #122b29;
+  --panel: #173733;
+  --panel-2: #1d4440;
+  --line: rgba(247, 241, 225, 0.12);
+
+  --cream: #f7f1e1;
+  --muted: #a9c2bc;
+  --lime: #c6f24e;
+  --lime-deep: #9ccc2a;
+  --cyan: #3ee6d4;
+  --coral: #ff6b5b;
+  --lilac: #b9a6ff;
+  --pink: #ff9ec7;
+  --ink: #0b1716;
+
+  --radius: 22px;
+  --radius-sm: 14px;
+
+  --font-display: "Bricolage Grotesque", system-ui, sans-serif;
+  --font-body: "DM Sans", system-ui, sans-serif;
+  --font-pixel: "Silkscreen", ui-monospace, monospace;
+  --font-hand: "Caveat", cursive;
+
+  --ease-pop: cubic-bezier(0.34, 1.56, 0.64, 1);
+}

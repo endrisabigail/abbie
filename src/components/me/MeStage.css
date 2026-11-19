@@ -1,0 +1,66 @@
+.me-stage {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.me-stage canvas {
+  touch-action: pan-y;
+}
+
+.me-bubble {
+  position: absolute;
+  top: 9%;
+  right: 4%;
+  z-index: 2;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.3rem;
+  background: var(--cream);
+  color: var(--ink);
+  padding: 0.5rem 1.1rem;
+  border-radius: 20px 20px 20px 4px;
+  box-shadow: 5px 5px 0 var(--lime);
+  opacity: 0;
+  transform: scale(0.4) rotate(-8deg);
+  transform-origin: bottom left;
+  transition: opacity 0.25s, transform 0.4s var(--ease-pop);
+  pointer-events: none;
+}
+
+.me-bubble.show {
+  opacity: 1;
+  transform: scale(1) rotate(-3deg);
+}
+
+.me-wave-btn {
+  position: absolute;
+  bottom: 4%;
+  right: 4%;
+  font-size: 0.72rem;
+  color: var(--cream);
+  background: rgba(13, 31, 30, 0.6);
+  border: 1.5px solid var(--line);
+  padding: 0.45rem 0.8rem;
+  border-radius: 999px;
+  backdrop-filter: blur(6px);
+  transition: background 0.2s, color 0.2s;
+}
+
+.me-wave-btn:hover {
+  background: var(--lime);
+  color: var(--ink);
+}
+
+.me-loading,
+.me-fallback {
+  color: var(--lime);
+  font-size: 0.8rem;
+  white-space: nowrap;
+}
+
+.me-fallback {
+  height: 100%;
+  display: grid;
+  place-items: center;
+}

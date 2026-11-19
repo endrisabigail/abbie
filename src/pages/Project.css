@@ -1,0 +1,253 @@
+.project-banner {
+  position: relative;
+  overflow: hidden;
+  background:
+    linear-gradient(115deg, var(--card) 0 58%, transparent 58%),
+    linear-gradient(115deg, transparent 0 58%, color-mix(in srgb, var(--card) 70%, #000) 58%);
+  color: var(--ink);
+  padding: 130px 0 4rem;
+  min-height: 520px;
+}
+
+.project-banner-inner {
+  position: relative;
+  z-index: 1;
+}
+
+.back {
+  display: inline-block;
+  font-size: 0.72rem;
+  color: var(--ink);
+  text-decoration: none;
+  background: rgba(255, 255, 255, 0.45);
+  padding: 0.35rem 0.7rem;
+  margin-bottom: 2rem;
+}
+
+.back:hover {
+  background: var(--ink);
+  color: var(--lime);
+}
+
+.project-no {
+  font-size: 0.8rem;
+}
+
+.project-title {
+  font-size: clamp(3.6rem, 12vw, 9rem);
+  text-transform: uppercase;
+  line-height: 0.85;
+  max-width: 70%;
+}
+
+.project-tagline {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.1rem, 2.2vw, 1.5rem);
+  max-width: 520px;
+  margin-top: 1rem;
+}
+
+.banner-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 2rem;
+}
+
+.strip-tile {
+  width: 58px;
+  height: 58px;
+  background: var(--ink);
+  display: grid;
+  place-items: center;
+  padding: 4px;
+  border: 2px solid rgba(255, 255, 255, 0.6);
+}
+
+.strip-tile img {
+  max-height: 100%;
+}
+
+.banner-art {
+  position: absolute;
+  right: 4vw;
+  bottom: -2%;
+  height: 92%;
+  width: auto;
+  filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.4));
+  animation: bannerFloat 5s ease-in-out infinite;
+}
+
+@keyframes bannerFloat {
+  50% {
+    transform: translateY(-14px) rotate(1.5deg);
+  }
+}
+
+@media (max-width: 760px) {
+  .banner-art {
+    opacity: 0.35;
+    height: 70%;
+  }
+  .project-title {
+    max-width: 100%;
+  }
+}
+
+.project-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 3.5rem;
+  padding: 4rem 0 3rem;
+  align-items: start;
+}
+
+.project-info h2 {
+  font-size: 2.6rem;
+  text-transform: uppercase;
+}
+
+.project-role {
+  color: var(--cyan);
+  font-weight: 700;
+  margin: 0.4rem 0 1.4rem;
+}
+
+.project-summary {
+  font-size: 1.08rem;
+  line-height: 1.75;
+  color: var(--cream);
+}
+
+.contrib {
+  list-style: none;
+  display: grid;
+  gap: 0.7rem;
+  border: 1.5px solid rgba(62, 230, 212, 0.4);
+  background: rgba(62, 230, 212, 0.05);
+  border-radius: var(--radius-sm);
+  padding: 1.1rem 1.3rem;
+}
+
+.contrib li {
+  position: relative;
+  padding-left: 1.3rem;
+  color: var(--muted);
+}
+
+.contrib li::before {
+  content: "▸";
+  position: absolute;
+  left: 0;
+  color: var(--lime);
+}
+
+.project-media {
+  padding-bottom: 2rem;
+}
+
+.media-block {
+  margin-bottom: 3rem;
+}
+
+.project-info .sub {
+  margin-top: 2.2rem;
+}
+
+.project-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 1.8rem;
+}
+
+.howto {
+  display: grid;
+  gap: 0.6rem;
+}
+
+.howto-link {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  text-decoration: none;
+  background: var(--bg-2);
+  border: 1.5px solid var(--line);
+  border-radius: var(--radius-sm);
+  padding: 0.8rem 1rem;
+  transition: border-color 0.2s, transform 0.2s;
+}
+
+.howto-link:hover {
+  border-color: var(--lime);
+  transform: translateX(4px);
+}
+
+.howto-icon {
+  font-size: 1.6rem;
+}
+
+.howto-link strong,
+.howto-link small {
+  display: block;
+  line-height: 1.3;
+}
+
+.howto-link small {
+  color: var(--muted);
+}
+
+.howto-arrow {
+  margin-left: auto;
+  color: var(--lime);
+}
+
+.project-icon {
+  aspect-ratio: 1;
+  max-width: 420px;
+  margin: 0 auto;
+  background: var(--card);
+  display: grid;
+  place-items: center;
+  font-size: 8rem;
+  border-radius: var(--radius);
+}
+
+@media (max-width: 900px) {
+  .project-grid {
+    grid-template-columns: 1fr;
+  }
+  .project-visual {
+    order: -1;
+  }
+}
+
+.next-project {
+  padding: 1rem 0 5rem;
+}
+
+.next-link {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  text-decoration: none;
+  border-top: 1.5px solid var(--line);
+  padding-top: 1.5rem;
+}
+
+.next-link span {
+  font-size: 0.72rem;
+  color: var(--lime);
+}
+
+.next-link strong {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 6vw, 4rem);
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+
+.next-link:hover strong {
+  color: var(--lime);
+}

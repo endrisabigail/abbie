@@ -1,0 +1,52 @@
+.workshop {
+  padding-bottom: 6rem;
+}
+
+.workshop-banner {
+  padding: 140px 0 3rem;
+}
+
+.workshop-banner .section-title {
+  margin-bottom: 1rem;
+}
+
+.workshop-sub {
+  color: var(--muted);
+  max-width: 560px;
+  font-size: 1.1rem;
+}
+
+.filter-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 2rem;
+}
+
+.filter-btn {
+  font-weight: 700;
+  padding: 0.45rem 1.1rem;
+  border-radius: 999px;
+  border: 1.5px solid var(--line);
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.filter-btn:hover {
+  border-color: var(--lime);
+}
+
+.filter-btn.active {
+  background: var(--lime);
+  color: var(--ink);
+  border-color: var(--lime);
+}
+
+.post-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+  gap: 1.3rem;
+}
+
+.workshop-grid > div {
+  display: flex;
+}

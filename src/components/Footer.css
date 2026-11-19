@@ -1,0 +1,31 @@
+.footer {
+  border-top: 1px solid var(--line);
+  background: #0a1817;
+}
+
+.footer-inner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 1rem 2rem;
+  padding: 1.8rem 0 2.2rem;
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+  font-size: 0.92rem;
+  font-weight: 700;
+}
+
+.footer-links a {
+  text-decoration: none;
+  color: var(--cream);
+}
+
+.footer-links a:hover {
+  color: var(--lime);
+}
