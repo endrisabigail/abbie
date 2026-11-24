@@ -11,6 +11,8 @@ summary: How the 3D model on my homepage waves, smiles, and moves without a skel
 
 The model on my homepage is a sculpt of me that I made in Nomad. It waves, smiles, follows your cursor, and moves along when the music is on, but it has no rig.
 
+![Sculpting myself in Nomad](media/portfolio/sculpts/01-self-sculpt.mp4)
+
 ## Why no rig
 
 Normally a character is animated by adding an armature in Blender, painting weights, and keyframing the motion. My sculpt is built from separate primitives (tubes, spheres, and lathes), so each body part is its own mesh in the exported `.glb`. That made it possible to create the joints in code instead.

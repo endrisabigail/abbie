@@ -209,3 +209,12 @@ h4 {
 section[id] {
   scroll-margin-top: 70px;
 }
+
+.sub {
+  font-family: var(--font-pixel);
+  font-weight: 400;
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+  color: var(--cyan);
+  margin: 0 0 1rem;
+}

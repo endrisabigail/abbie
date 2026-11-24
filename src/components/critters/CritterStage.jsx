@@ -3,6 +3,7 @@ import { Canvas, useFrame } from "@react-three/fiber";
 import { ContactShadows, Html, OrbitControls, useGLTF } from "@react-three/drei";
 import * as THREE from "three";
 import { smoothModel } from "../three/smooth.js";
+import { addExtras, extrasKey } from "./extras.js";
 import "./CritterStage.css";
 
 const TARGET_HEIGHT = 1.5;
@@ -15,6 +16,7 @@ function useNormalized(src) {
       if (o.isMesh) o.geometry = o.geometry.clone();
     });
     smoothModel(clone, { roughness: 0.6 });
+    addExtras(extrasKey(src), clone);
     const box = new THREE.Box3().setFromObject(clone);
     const size = box.getSize(new THREE.Vector3());
     const center = box.getCenter(new THREE.Vector3());

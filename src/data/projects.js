@@ -16,7 +16,7 @@ export const projects = [
     cover: thumb("koda-bear"),
     tech: ["React", "React Three Fiber", "Three.js", "Node.js", "Express", "MongoDB", "JWT Auth", "Nomad Sculpt"],
     summary:
-      "Koda is a Tamagotchi-inspired baby tracker. Parents and caregivers log feeds, naps, and moods, and each child is paired with a 3D animal character that reacts to those logs. It also includes offline sync, multi-caregiver access, and an AI summary of recent activity.",
+      "Koda is an offline-first, mobile-friendly baby tracker that helps multiple caregivers track and coordinate infant health activities, with AI-driven analytics and HIPAA-compliant reporting. Inspired by Tamagotchi, each child is paired with a 3D animal character that reacts to their activity logs.",
     contributions: [
       "Designed and implemented the app's UI/UX, including the habitat backgrounds, animation code, 3D rendered avatars, and dark mode interface.",
       "Created the wireframes and proposed the tech stack the team built on (React, Node.js, Express, MongoDB).",
@@ -34,7 +34,7 @@ export const projects = [
       { label: "Live app", href: "https://koda-app-8f5h.onrender.com/" },
       { label: "GitHub", href: "https://github.com/Team8-Bedrock/koda-babytracker" },
     ],
-    posts: ["designing-koda-interface", "cozy-habitats-in-r3f", "sculpting-koda-critters"],
+    posts: ["designing-koda-interface", "koda-auth-and-qa", "cozy-habitats-in-r3f", "sculpting-koda-critters"],
     status: "In development",
   },
   {
@@ -47,9 +47,10 @@ export const projects = [
     cover: thumb("hearth-frog"),
     tech: ["React", "Three.js", "Node.js", "MongoDB", "Socket.IO", "Firebase Auth", "Anthropic API", "Blender"],
     summary:
-      "Hearth turns tasks into quests inside a 3D plaza. Teammates appear as avatars in real time over Socket.IO, an AI companion helps break large tasks into smaller steps, and completing work changes the environment around you.",
+      "A fully deployed project management app that replaces traditional checkboxes with a hand-crafted 3D environment. Built for people who find standard productivity tools clinical, Hearth turns to-dos into quests inside a shared plaza where every completed task helps the world grow. Teammates appear as avatars in real time over Socket.IO, and an AI companion helps break large tasks into smaller steps.",
     contributions: [
       "Built the MERN stack from scratch, with Firebase Authentication for sign-in and password resets.",
+      "Designed six themed plazas, each with its own character, companion, and interface colors.",
       "Built the real-time multiplayer plaza with avatar presence over Socket.IO.",
       "Added an AI companion backed by a server route to the Anthropic API.",
       "Sculpted the characters and props in Blender.",
@@ -74,6 +75,7 @@ export const projects = [
     summary:
       "Configured a PA-415 to route outbound internet access and verified stateful traffic filtering across Layer 3 interfaces without active cloud registration, using custom NAT rules, routing tables, and inter-zone security policies.",
     contributions: [
+      "Built Slack-integrated log forwarding to send real-time alerts on guest network join events.",
       "Enforced network isolation to prevent lateral movement toward internal zones.",
       "Applied a 60-minute DHCP lease limit to reduce dynamic host exposure.",
     ],

@@ -1,5 +1,8 @@
 import { Link, useParams, useSearchParams } from "react-router-dom";
+import { lazy, Suspense } from "react";
 import LazyCritter from "../components/critters/LazyCritter.jsx";
+
+const KodaMoods = lazy(() => import("../components/koda/KodaMoods.jsx"));
 import { Screens, Videos } from "../components/MediaGallery.jsx";
 import useReveal from "../components/useReveal.js";
 import { projects } from "../data/projects.js";
@@ -86,7 +89,11 @@ export default function Project() {
         </div>
 
         <div className="project-visual reveal">
-          {p.critters?.length ? (
+          {p.id === "koda" ? (
+            <Suspense fallback={<div className="critter-stage-placeholder"><span>Loading…</span></div>}>
+              <KodaMoods tint={p.color} initialAnimal={(params.get("c") || "bear").toLowerCase()} />
+            </Suspense>
+          ) : p.critters?.length ? (
             <LazyCritter key={p.id} critters={p.critters} tint={p.color} initial={initial} />
           ) : (
             <div className="project-icon"><span aria-hidden="true">{p.icon}</span></div>

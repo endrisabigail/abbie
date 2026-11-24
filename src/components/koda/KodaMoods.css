@@ -1,0 +1,85 @@
+.km {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.km-canvas {
+  position: relative;
+  height: 440px;
+  border-radius: var(--radius);
+  background:
+    radial-gradient(circle at 50% 80%, rgba(255, 255, 255, 0.5), transparent 55%),
+    var(--km-tint);
+  overflow: hidden;
+}
+
+.km-label {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  font-family: var(--font-pixel);
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  background: var(--ink);
+  color: var(--lime);
+  padding: 0.3rem 0.6rem;
+}
+
+.km-loading,
+.km-fallback {
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: var(--ink);
+  white-space: nowrap;
+}
+
+.km-fallback {
+  height: 100%;
+  display: grid;
+  place-items: center;
+}
+
+.km-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.km-btn,
+.km-chip {
+  font-weight: 700;
+  font-size: 0.85rem;
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  border: 1.5px solid var(--line);
+  color: var(--cream);
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.km-chip {
+  font-size: 0.78rem;
+  padding: 0.3rem 0.75rem;
+}
+
+.km-btn:hover,
+.km-chip:hover {
+  border-color: var(--lime);
+}
+
+.km-btn.on {
+  background: var(--lime);
+  border-color: var(--lime);
+  color: var(--ink);
+}
+
+.km-chip.on {
+  background: var(--cyan);
+  border-color: var(--cyan);
+  color: var(--ink);
+}
+
+.km-hint {
+  font-size: 0.8rem;
+  color: var(--muted);
+}

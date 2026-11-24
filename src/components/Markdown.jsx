@@ -18,12 +18,14 @@ const md = new Marked({
   renderer: {
     image({ href, title, text }) {
       const cap = title || "";
+      const size = (href.match(/#(wide|small|tall)$/) || [])[1] || "";
+      href = href.replace(/#(wide|small|tall)$/, "");
       const url = resolve(href);
       if (!url) return "";
       if (/\.(mp4|webm)$/i.test(href)) {
         return `<figure class="md-figure"><video src="${url}" autoplay muted loop playsinline controls></video>${cap || text ? `<figcaption>${escape(cap || text)}</figcaption>` : ""}</figure>`;
       }
-      return `<figure class="md-figure"><img src="${url}" alt="${escape(text || "")}" loading="lazy" />${cap ? `<figcaption>${escape(cap)}</figcaption>` : ""}</figure>`;
+      return `<figure class="md-figure ${size ? `md-${size}` : ""}"><img src="${url}" alt="${escape(text || "")}" loading="lazy" />${cap ? `<figcaption>${escape(cap)}</figcaption>` : ""}</figure>`;
     },
     code({ text, lang }) {
       if (lang === "note") return `<aside class="md-note"><span class="md-note-tape"></span>${md.parse(text)}</aside>`;
@@ -47,14 +49,14 @@ function parseProps(text) {
   return props;
 }
 
-const EMBED = /```(critter|video|gallery)\r?\n([\s\S]*?)```/g;
+const EMBED = /```(critter|video|gallery)(?:[ \t]+(\w+))?\r?\n([\s\S]*?)```/g;
 
 function split(body) {
   const parts = [];
   let last = 0;
   for (const m of body.matchAll(EMBED)) {
     if (m.index > last) parts.push({ type: "md", text: body.slice(last, m.index) });
-    parts.push(m[1] === "gallery" ? { type: "gallery", lines: m[2].split(/\r?\n/).map((l) => l.trim()).filter(Boolean) } : { type: m[1], props: parseProps(m[2]) });
+    parts.push(m[1] === "gallery" ? { type: "gallery", layout: m[2] || "", lines: m[3].split(/\r?\n/).map((l) => l.trim()).filter(Boolean) } : { type: m[1], props: parseProps(m[3]) });
     last = m.index + m[0].length;
   }
   if (last < body.length) parts.push({ type: "md", text: body.slice(last) });
@@ -79,7 +81,7 @@ function CritterEmbed({ props }) {
   );
 }
 
-function GalleryEmbed({ lines }) {
+function GalleryEmbed({ lines, layout }) {
   const items = lines
     .map((line) => {
       const m = line.match(/^(\S+)\s*(?:\|\s*(.*))?$/);
@@ -90,7 +92,7 @@ function GalleryEmbed({ lines }) {
     .filter(Boolean);
   if (!items.length) return null;
   return (
-    <div className="md-gallery">
+    <div className={`md-gallery ${layout ? `md-gallery-${layout}` : ""}`}>
       <Screens items={items} />
     </div>
   );
@@ -114,7 +116,7 @@ export default function Markdown({ body }) {
       {parts.map((p, i) => {
         if (p.type === "critter") return <CritterEmbed key={i} props={p.props} />;
         if (p.type === "video") return <VideoEmbed key={i} props={p.props} />;
-        if (p.type === "gallery") return <GalleryEmbed key={i} lines={p.lines} />;
+        if (p.type === "gallery") return <GalleryEmbed key={i} lines={p.lines} layout={p.layout} />;
         return <div key={i} dangerouslySetInnerHTML={{ __html: md.parse(p.text) }} />;
       })}
     </div>

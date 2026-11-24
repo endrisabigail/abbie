@@ -287,3 +287,27 @@
   font-size: 1.6rem;
   margin-bottom: 1.2rem;
 }
+
+.md-figure.md-wide img {
+  width: 100%;
+  max-height: none;
+  background: #fff;
+}
+
+.md-figure.md-small,
+.md-figure.md-tall {
+  background: var(--panel);
+  border-radius: var(--radius);
+  padding: 1.6rem;
+}
+
+.md-figure.md-small img {
+  width: min(380px, 100%);
+  max-height: none;
+}
+
+.md-figure.md-tall img {
+  height: 560px;
+  max-height: none;
+  width: auto;
+}
