@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import LazyMe from "../components/me/LazyMe.jsx";
-import LazyCritter from "../components/critters/LazyCritter.jsx";
+import { BrowserShowcase, PhoneShowcase } from "../components/Showcase.jsx";
 import Polaroids from "../components/Polaroids.jsx";
 import Sparkle from "../components/Sparkle.jsx";
 import useReveal from "../components/useReveal.js";
@@ -76,7 +76,7 @@ function Hero() {
           </p>
           <p className="hero-intro">{me.intro}</p>
           <div className="hero-cta">
-            <Link to="/#projects" className="btn lime">View projects</Link>
+            <Link to="/projects" className="btn lime">View projects</Link>
             <a href={me.resume} download className="btn">Resume ↓</a>
           </div>
           <p className="hero-status">
@@ -192,9 +192,17 @@ function Academic() {
           <Links links={[...koda.links, { label: "Project details", to: "/projects/koda" }]} />
         </div>
         <div className="card-visual">
-          <LazyCritter critters={koda.critters} tint={koda.color} />
+          <PhoneShowcase
+            tint={koda.color}
+            alt="Koda app screens showing animal habitats"
+            front={["koda/screens/01-bear-habitat.webp", "koda/screens/02-frog-habitat.webp", "koda/screens/03-bunny-habitat.webp", "koda/screens/04-panda-habitat.webp", "koda/screens/05-koala-habitat.webp", "koda/screens/06-fox-habitat.webp"]}
+            back={["koda/screens/09-frog-habitat-night.webp", "koda/screens/10-bunny-habitat-night.webp", "koda/screens/11-panda-habitat-night.webp", "koda/screens/12-koala-habitat-night.webp", "koda/screens/08-fox-habitat-night.webp"]}
+            labels={["Bear habitat", "Frog habitat", "Bunny habitat", "Panda habitat", "Koala habitat", "Fox habitat"]}
+          />
         </div>
       </article>
+
+      <QuecourtCard />
 
       <article className="xp-card reveal">
         <p className="card-label pixel">Program</p>
@@ -204,6 +212,21 @@ function Academic() {
         <Polaroids photos={caam.photos} columns={3} />
       </article>
     </section>
+  );
+}
+
+function QuecourtCard() {
+  const q = project("quecourt");
+  return (
+    <article className="xp-card reveal">
+      <p className="card-label pixel">Academic project</p>
+      <h3>{q.name}: {q.tagline}</h3>
+      <div className="chips card-chips">
+        {q.tech.map((t) => <span className="chip" key={t}>{t}</span>)}
+      </div>
+      <p className="card-text">{q.summary}</p>
+      <Links links={[{ label: "Project details", to: "/projects/quecourt" }]} />
+    </article>
   );
 }
 
@@ -243,7 +266,13 @@ function Projects() {
 
       <article className="xp-card split reverse reveal">
         <div className="card-visual">
-          <LazyCritter critters={hearth.critters} tint={hearth.color} />
+          <BrowserShowcase
+            tint={hearth.color}
+            url="hearth-umber-six.vercel.app"
+            alt="Hearth app screens showing the 3D plazas"
+            screens={["hearth/screens/11-multiplayer.webp", "hearth/screens/03-sunset-orchard.webp", "hearth/screens/08-coral-reef.webp", "hearth/screens/05-glowwood.webp", "hearth/screens/09-lily-pond.webp", "hearth/screens/01-character-select.webp"]}
+            labels={["Multiplayer plaza", "Sunset orchard", "Coral reef", "Glowwood", "Lily pond", "Character select"]}
+          />
         </div>
         <div>
           <p className="card-label pixel">{hearth.role}</p>

@@ -36,7 +36,7 @@ export const internship = {
 };
 
 export const capstone = {
-  role: "UI/UX Developer",
+  role: "UI/UX Developer, QA Tester & Team Developer",
   title: "Koda · UNT Sponsored Capstone",
   when: "2026",
   bullets: [

@@ -8,10 +8,11 @@ const thumb = (n) => asset(`img/critters/${n}.webp`);
 export const projects = [
   {
     id: "koda",
+    category: "Academic",
     number: "01",
     name: "Koda",
     tagline: "A baby-tracking app where each child gets a 3D animal companion",
-    role: "UNT sponsored capstone · UI/UX Developer",
+    role: "UNT sponsored capstone · UI/UX Developer, QA Tester & Team Developer",
     color: "#b9e86a",
     cover: thumb("koda-bear"),
     tech: ["React", "React Three Fiber", "Three.js", "Node.js", "Express", "MongoDB", "JWT Auth", "Nomad Sculpt"],
@@ -39,6 +40,7 @@ export const projects = [
   },
   {
     id: "hearth",
+    category: "Personal",
     number: "02",
     name: "Hearth",
     tagline: "Project management as a shared 3D space",
@@ -66,6 +68,7 @@ export const projects = [
   },
   {
     id: "firewall",
+    category: "Internship",
     number: "03",
     name: "PA-415 Firewall Lab",
     tagline: "Configuring and hardening a Palo Alto firewall",
@@ -85,6 +88,7 @@ export const projects = [
   },
   {
     id: "portfolio",
+    category: "Personal",
     number: "04",
     name: "This Portfolio",
     tagline: "A portfolio built around a 3D sculpt of me",
@@ -102,5 +106,25 @@ export const projects = [
     icon: "👋",
     links: [{ label: "Source", href: "https://github.com/endrisabigail/abbie" }],
     posts: ["waving-hello"],
+  },
+  {
+    id: "quecourt",
+    category: "Academic",
+    number: "05",
+    name: "QUECOURT",
+    tagline: "Relational database and multi-facility court system",
+    role: "Academic project",
+    color: "#c9b8ff",
+    tech: ["Relational Databases", "SQL", "ER Modeling", "Normalization", "Schema Design"],
+    summary:
+      "Relational database design and backend schema architecture for a multi-facility federal court system, emphasizing normalized entity-relationship modeling, data integrity constraints, and multi-entity query workflows.",
+    contributions: [
+      "Designed a normalized entity-relationship model for a federal court system spanning multiple facilities.",
+      "Built the backend schema with data integrity constraints across related entities.",
+      "Wrote multi-entity query workflows to pull connected records across the system.",
+    ],
+    icon: "⚖️",
+    links: [],
+    posts: [],
   },
 ].map((p) => ({ ...p, media: mediaFor(p.id) }));

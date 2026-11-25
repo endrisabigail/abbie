@@ -25,7 +25,7 @@ export default function Project() {
     <article className="project" style={{ "--card": p.color }}>
       <header className="project-banner">
         <div className="wrap project-banner-inner">
-          <Link to="/#projects" className="back pixel">◂ All projects</Link>
+          <Link to="/projects" className="back pixel">◂ All projects</Link>
           <p className="project-no pixel">Project {p.number}</p>
           <h1 className="project-title">{p.name}</h1>
           <p className="project-tagline">{p.tagline}</p>

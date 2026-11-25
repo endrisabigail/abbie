@@ -4,6 +4,7 @@ import Nav from "./components/Nav.jsx";
 import Footer from "./components/Footer.jsx";
 import Home from "./pages/Home.jsx";
 import Project from "./pages/Project.jsx";
+import Projects from "./pages/Projects.jsx";
 import Workshop from "./pages/Workshop.jsx";
 import Post from "./pages/Post.jsx";
 import NotFound from "./pages/NotFound.jsx";
@@ -31,6 +32,7 @@ export default function App() {
       <main>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/projects" element={<Projects />} />
           <Route path="/projects/:id" element={<Project />} />
           <Route path="/process" element={<Workshop />} />
           <Route path="/process/:slug" element={<Post />} />
